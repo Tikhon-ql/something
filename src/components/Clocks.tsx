@@ -1,6 +1,7 @@
 import { method } from '../api/methods';
 import React, { useEffect, useState } from 'react';
 import '../styles/_clocks.scss'
+import Loader from './Loader';
 
 type DateTime = {
     date: string,
@@ -10,10 +11,13 @@ type DateTime = {
 const Clocks = () => {
 
     const [time, setTime] = useState<DateTime>()
+    const [reload, setReload] = useState<Boolean>(false)
+    const [isLoading, setIsLoading] = useState<Boolean>(false)
 
     useEffect(() => {
         (async () => {
             try {
+                setIsLoading(true)
                 const {datetime, day_of_year} = (await method.getTime({timezone: 'Europe', city: "Minsk"})).data
 
                 const state: DateTime = {
@@ -26,19 +30,31 @@ const Clocks = () => {
             catch(e) {
                 console.error(e)
             }
+            finally {
+                setIsLoading(false)
+            }
         })()
-    }, [])
+    }, [reload])
 
-    return (
+    return <>
         <div className="clocks">
             <div className="clocks__wrapper">
-                <h3>World time</h3>
-                <div>{time?.date}</div>
-                <h3>Day of year</h3>
-                <div>{time?.dayOfYear}</div>
+                <div>
+                    <h3 className="subheadline">Local time</h3>
+                    <span>{time?.date}</span>
+                </div>
+                <div>
+                    <h3 className="subheadline">Day of year</h3>
+                    <span>{time?.dayOfYear}</span>
+                </div>
             </div>
+            <div className="clocks__update-btn" onClick={() => setReload(!reload)}>Click to update time</div>
         </div>
-    )
+
+        {isLoading && 
+        <Loader />
+        } 
+    </>
 }
 
 export default Clocks
