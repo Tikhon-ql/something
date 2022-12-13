@@ -13,33 +13,33 @@
     align-items: center;
     justify-content: center;
 }
-.lds-facebook {
+.lds {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
   }
-  .lds-facebook div {
+  .lds div {
     display: inline-block;
     position: absolute;
     left: 8px;
     width: 16px;
     background: black;
-    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    animation: lds 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   }
-  .lds-facebook div:nth-child(1) {
+  .lds div:nth-child(1) {
     left: 8px;
     animation-delay: -0.24s;
   }
-  .lds-facebook div:nth-child(2) {
+  .lds div:nth-child(2) {
     left: 32px;
     animation-delay: -0.12s;
   }
-  .lds-facebook div:nth-child(3) {
+  .lds div:nth-child(3) {
     left: 56px;
     animation-delay: 0;
   }
-  @keyframes lds-facebook {
+  @keyframes lds {
     0% {
       top: 8px;
       height: 64px;

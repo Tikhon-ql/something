@@ -7,5 +7,9 @@
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "jsx": "react-jsx",
-  }
+  },
+  "include": [
+    "src",
+    "./src/declarations.ts"
+  ]
 }

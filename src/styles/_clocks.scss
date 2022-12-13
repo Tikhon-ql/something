@@ -50,7 +50,7 @@
 
         background-color: black;
 
-        color: bisque;
+        color: white;
         font-size: 32px;
         line-height: 50px;
         font-weight: 600;
@@ -67,5 +67,19 @@
         &:hover {
             transform: scale(1.03);
         }
+    }
+    &__info {
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 600;
+        cursor: pointer;
+       
+        width: max-content;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        margin: 20px auto;
     }
 }
