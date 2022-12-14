@@ -1,4 +1,4 @@
-import '../../styles/_modal-template.scss'
+import './_modal-template.scss'
 
 const Modal = ({modalState, ...props}) => {
 

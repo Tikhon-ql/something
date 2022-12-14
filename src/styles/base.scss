@@ -1,35 +1,39 @@
+@import './variables.scss';
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 }
 
 body {
-	font: 400 15px/1.2 'InterRegular', sans-serif;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	font: 400 15px/1.5 'InterRegular', sans-serif;
 	height: 100%;
+
+    background-color: rgba(255, 228, 196, 0.904);
 }
 
 h1 {
 	font-weight: 700;
-	font-size: 56px;
-	line-height: 68px;
+	font-size: 60px;
+	line-height: 70px;
 
-	@media screen and (max-width: 360px) {
-		font-size: 32px;
-		line-height: 38px;
+	@media (max-width: $breakpoint-md) {
+		font-size: 50px;
+	}
+	@media (max-width: $breakpoint-extra-sm) {
+		font-size: 35px;
+		line-height: 40px;
 	}
 }
 
 h2 {
 	font-weight: 700;
-	font-size: 50px;
-	line-height: 70px;
+	font-size: 35px;
+	line-height: 45px;
 
-	@media screen and (max-width: 360px) {
-		font-size: 32px;
-		line-height: 38px;
+	@media (max-width: $breakpoint-extra-sm) {
+		font-size: 25px;
+		line-height: 30px;
 	}
 }
 

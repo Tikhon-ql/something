@@ -25,9 +25,21 @@ module.exports = {
 				  "sass-loader",
 				],
 			},
+			{ 
+				test: /\.svg$/, 
+				use: 'svg-inline-loader' 
+			}
 		],
 	},
 	plugins: [
         new HtmlWebpackPlugin({ template: "./public/index.html" }),
-	]
+	],
+	devServer: {
+		static: {
+		  directory: path.join(__dirname, '../output'),
+		},
+		compress: true,
+		port: 9000,
+	  },
+	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 };

@@ -1,8 +1,9 @@
-import { method } from '../api/methods';
+import { method } from '../../api/methods';
 import React, { useEffect, useState } from 'react';
-import '../styles/_clocks.scss'
-import Loader from './utilities/Loader';
-import Modal from './utilities/Modal'
+import './_clocks.scss'
+import Loader from '../utilities/loader/Loader';
+import Modal from '../utilities/modal/Modal'
+import { Button } from '../../styles/uiKit';
 
 type DateTime = {
     date: string,
@@ -16,6 +17,8 @@ const Clocks = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)
 
     const [isOpen, setIsOpen] = useState<Boolean>(false)
+
+    
 
     useEffect(() => {
         (async () => {
@@ -51,7 +54,7 @@ const Clocks = () => {
                     <span>{time?.dayOfYear}</span>
                 </div>
             </div>
-            <div className="clocks__update-btn" onClick={() => setReload(!reload)}>Click to update time</div>
+            <Button onClick={() => setReload(!reload)}>Click to update time</Button>
             <p className="clocks__info" onClick={() => setIsOpen(!isOpen)}>Show info</p>
         </div>
 
