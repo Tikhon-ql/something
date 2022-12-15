@@ -11,8 +11,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "SET NODE_ENV='production' && webpack"
+    "start": "webpack serve",
+    "build": "webpack --mode=production"
   },
   "devDependencies": {
     "css-loader": "^6.7.2",
