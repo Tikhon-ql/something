@@ -1,8 +1,6 @@
 @import '../../styles/variables.scss';
 
 .clocks {
-    height: 100vh;
-
     &__wrapper {
         position: relative;
         padding: 50px;
@@ -16,11 +14,11 @@
         justify-content: space-around;
         gap: 50px;
 
-        @media (max-width: $breakpoint-xl) {
+        @media (max-width: $breakp1200) {
             flex-direction: column;
             gap: 30px;
         }
-        @media (max-width: $breakpoint-sm) {
+        @media (max-width: $breakp576) {
             padding: 20px;
         }
 
@@ -32,7 +30,7 @@
         .subheadline { 
             margin-bottom: 10px;
 
-            @media (max-width: $breakpoint-sm) {
+            @media (max-width: $breakp576) {
                 font-size: 32px;
             }
         }

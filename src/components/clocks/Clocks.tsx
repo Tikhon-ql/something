@@ -4,65 +4,38 @@ import './_clocks.scss'
 import Loader from '../utilities/loader/Loader';
 import Modal from '../utilities/modal/Modal'
 import { Button } from '../../styles/uiKit';
+import time from '../../store/time';
 
-type DateTime = {
-    date: string,
-    dayOfYear: number,
-}
 
 const Clocks = () => {
-
-    const [time, setTime] = useState<DateTime>()
-    const [reload, setReload] = useState<Boolean>(false)
     const [isLoading, setIsLoading] = useState<Boolean>(false)
-
     const [isOpen, setIsOpen] = useState<Boolean>(false)
 
-    
-
     useEffect(() => {
-        (async () => {
-            try {
-                setIsLoading(true)
-                const {datetime, day_of_year} = (await method.getTime({timezone: 'Europe', city: "Minsk"})).data
-
-                const state: DateTime = {
-                    date: new Date(datetime).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:"2-digit", minute: "2-digit" , second: "2-digit" }),
-                    dayOfYear: day_of_year
-                }
-
-                setTime(state)
-            }
-            catch(e) {
-                console.error(e)
-            }
-            finally {
-                setIsLoading(false)
-            }
-        })()
-    }, [reload])
+        time.getTime(setIsLoading)
+    }, [])
 
     return <>
         <div className="clocks">
             <div className="clocks__wrapper">
                 <div>
-                    <h3 className="subheadline">Local time</h3>
-                    <span>{time?.date}</span>
+                    <h3 className="subheadline">Дата и время</h3>
+                    <span>{time?.time.date}</span>
                 </div>
                 <div>
-                    <h3 className="subheadline">Day of year</h3>
-                    <span>{time?.dayOfYear}</span>
+                    <h3 className="subheadline">День года</h3>
+                    <span>{time?.time.dayOfYear}</span>
                 </div>
             </div>
-            <Button onClick={() => setReload(!reload)}>Click to update time</Button>
-            <p className="clocks__info" onClick={() => setIsOpen(!isOpen)}>Show info</p>
+            <Button onClick={() => time.getTime(setIsLoading)}>Нажми чтобы обновить время!</Button>
+            <p className="clocks__info" onClick={() => setIsOpen(!isOpen)}>Показать информацию</p>
         </div>
 
         <Loader isLoading={isLoading} />
         <Modal modalState={{isOpen, setIsOpen}}>
-            <h2>It is modal window!</h2>
-            <p>Here may be your content</p>
-            <p>But now... Just close me... </p>
+            <h2>Это модальное окно</h2>
+            <p>Тут может быть твой контент</p>
+            <p>Но сейчас... Просто закрой меня?</p>
         </Modal>
     </>
 }

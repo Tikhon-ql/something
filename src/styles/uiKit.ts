@@ -37,7 +37,7 @@ export const Button = styled.div`
 
 export const Container = styled.div`
     max-width: 1200px;
-    padding: 0 15px;
+    padding: 150px 15px;
 
     margin: 0 auto;
 `

@@ -5,11 +5,11 @@
 	margin: 0;
 }
 
-body {
-	font: 400 15px/1.5 'InterRegular', sans-serif;
+body,
+html {
+	font: 400 10px/1.5 'InterRegular', sans-serif;
 	height: 100%;
-
-    background-color: rgba(255, 228, 196, 0.904);
+    background-color: $Gray;
 }
 
 h1 {
@@ -17,10 +17,10 @@ h1 {
 	font-size: 60px;
 	line-height: 70px;
 
-	@media (max-width: $breakpoint-md) {
+	@media (max-width: $breakp767) {
 		font-size: 50px;
 	}
-	@media (max-width: $breakpoint-extra-sm) {
+	@media (max-width: $breakp450) {
 		font-size: 35px;
 		line-height: 40px;
 	}
@@ -31,7 +31,7 @@ h2 {
 	font-size: 35px;
 	line-height: 45px;
 
-	@media (max-width: $breakpoint-extra-sm) {
+	@media (max-width: $breakp450) {
 		font-size: 25px;
 		line-height: 30px;
 	}
@@ -56,6 +56,13 @@ h5 {
 }
 
 p,
+li,
+span {
+	font-size: 2rem;
+	line-height: 3rem;
+}
+
+p,
 ul,
 h1,
 h2,
@@ -64,4 +71,11 @@ h4,
 h5 {
 	margin: 0;
 	padding: 0;
+}
+
+.paragraph {
+	margin: 1.5rem 0;
+}
+section {
+	margin: 0 0 5rem;
 }

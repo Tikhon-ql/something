@@ -1,4 +1,5 @@
-# Something with typescript, webpack and docker
+# Something with TS and React
+# Using docker, MobX, webpack, SCSS, RestAPI
 
 
 ## How to run this?
