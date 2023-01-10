@@ -24,7 +24,7 @@ class Time {
             this.time = {date: new Date(datetime).toLocaleDateString("ru", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:"2-digit", minute: "2-digit" , second: "2-digit" }), dayOfYear: day_of_year}
         }
         catch(e) {
-            alert(e)
+            console.error(e)
         }
         finally {
             setIsLoading(false)

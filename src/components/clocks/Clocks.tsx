@@ -5,11 +5,10 @@ import Loader from '../utilities/loader/Loader';
 import Modal from '../utilities/modal/Modal'
 import { Button } from '../../styles/uiKit';
 import time from '../../store/time';
-
+import modal, { ModalType } from '../../store/modal';
 
 const Clocks = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)
-    const [isOpen, setIsOpen] = useState<Boolean>(false)
 
     useEffect(() => {
         time.getTime(setIsLoading)
@@ -28,11 +27,12 @@ const Clocks = () => {
                 </div>
             </div>
             <Button onClick={() => time.getTime(setIsLoading)}>Нажми чтобы обновить время!</Button>
-            <p className="clocks__info" onClick={() => setIsOpen(!isOpen)}>Показать информацию</p>
+            <p className="clocks__info" onClick={() => modal.toggle(true, ModalType.justModal)}>Показать информацию</p>
         </div>
 
         <Loader isLoading={isLoading} />
-        <Modal modalState={{isOpen, setIsOpen}}>
+
+        <Modal type={ModalType.justModal}>
             <h2>Это модальное окно</h2>
             <p>Тут может быть твой контент</p>
             <p>Но сейчас... Просто закрой меня?</p>

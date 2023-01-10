@@ -1,24 +1,24 @@
 import './_modal-template.scss'
 import CloseBtn from '../../../images/close.svg'
+import modal, { ModalType } from '../../../store/modal'
+import React, { useEffect, FC, useState } from 'react';
+import {observer} from "mobx-react-lite"
 
-const Modal = ({modalState, ...props}) => {
+const Modal: FC<{children: React.ReactNode, type: ModalType}> = observer(({children, type}) => {
+    document.body.style.overflowY = modal.modals[type].isOpen?'hidden':'scroll';
 
-    const closeModal = () => modalState?.setIsOpen(false)
-
-    document.body.style.overflowY = modalState?.isOpen?'hidden':'scroll'
-    
     return <>
-        {modalState?.isOpen &&
+        {modal.modals[type].isOpen &&
 
-        <div className="modal">
+        <div className={`modal ${type}`}>
             <div className="modal__inner">
-                <div onClick={() => closeModal()} className="modal__close-btn"><img src={CloseBtn} alt="" /></div>
+                <div onClick={() => modal.toggle(false, type)} className="modal__close-btn"><img src={CloseBtn} alt="" /></div>
                 <div className="modal__content">
-                    {props.children}
+                    {children}
                 </div>
             </div>
         </div>}
     </>
-}
+})
 
 export default Modal

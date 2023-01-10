@@ -34,7 +34,7 @@ class Todo {
             setIsLoading(true)
             const todos: TodoType[] = (await method.getTodos()).data;
 
-            this.todos = [...this.todos, ...todos]
+            this.todos = [...todos]
         }
         catch(e) {
             alert(e)

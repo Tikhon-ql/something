@@ -14,11 +14,13 @@
     
         .todo {
             &-item {
+                position: relative;
+
                 display: flex;
                 flex-direction: row;
                 align-items: center;
     
-                padding: 2rem;
+                padding: 2rem 5rem 2rem 2rem;
                 background-color: $DeepGray;
                 border-radius: 1rem;
     
@@ -42,8 +44,21 @@
                     font-weight: 500;
     
                     &.status-true {
-                        color: #00932d;
+                        color: #fff;
                     } 
+                }
+                &__close {
+                    position: absolute;
+                    right: 2rem;
+
+                    img {
+                        transform: scale(1.1);
+                        transition: $transition;
+
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
                 }
             }
         }
