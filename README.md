@@ -11,8 +11,8 @@
 
 
 ## You can also use docker.
-> 1) **Write** `docker build -t <some-name>` in terminal.
+> 1) **Write** `docker build -t smth .` in terminal.
 
-> 2) **Next write** `docker run <host-port>:9000 <some-name>` to start container. 
+> 2) **Next write** `docker run -p <host-port>:80 smth` to start container. 
 
 > 3) **Open** `http://localhost:<host-port>`
