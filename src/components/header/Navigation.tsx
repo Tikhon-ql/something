@@ -6,7 +6,6 @@ const Links = ({type}) => {
     return <>
         <div className={`header__navigation-links ${type}`}>
             <Link className="header__navigation-link" to="/clocks" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Время</Link>
-            <Link className="header__navigation-link" to="/map" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Карта</Link>
             <Link className="header__navigation-link" to="/todos" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Список дел</Link>
         </div>
     </>

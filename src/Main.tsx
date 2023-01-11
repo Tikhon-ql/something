@@ -5,7 +5,6 @@ import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
 import Clocks from './components/clocks/Clocks';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
-import { Map } from './components/map/Map';
 import Todos from './components/todos/Todo';
 
 export const Main = () => {
@@ -16,7 +15,6 @@ export const Main = () => {
                 <Routes>
                     <Route path='/' element={<Home />}/>
                     <Route path='/clocks' element={<Clocks />}/>
-                    <Route path='/map' element={<Map />}/>
                     <Route path='/todos' element={<Todos />}/>
                 </Routes>
             </Container>

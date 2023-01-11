@@ -5,7 +5,7 @@ const Home = () => {
     return (<>
         <section className="main-block">
             <h2>Widgets Site</h2>
-            <span className='paragraph' style={{fontStyle: "italic"}}>developed by ReactJS</span>
+            <span className='paragraph' style={{fontStyle: "italic"}}>developed with ReactJS</span>
         </section>
         <section>
             <p className='paragraph'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {observer} from "mobx-react-lite"
-import todo from '../../store/todo';
+import todo, { TodoType } from '../../store/todo';
 import Loader from '../../components/utilities/loader/Loader';
 import './_todo.scss'
 import { Button } from '../../styles/uiKit';
@@ -8,15 +8,32 @@ import Close from '../../images/close.svg'
 
 const Todos = observer(() => {
     const [isLoading, setIsLoading] = useState(false)
+    const [newTodo, setNewTodo] = useState<TodoType>({title: ""})
 
-    useEffect(() => {
-        todo.getTodos(setIsLoading)
-    }, [])
+    // useEffect(() => {
+    //     todo.getTodos(setIsLoading)
+    // }, [])
+
+
 
     return <>
         <section>
             <h2>Сделай это!</h2> 
-            <Button style={{margin: "3rem 0 5rem 0", fontSize: "2rem"}} onClick={() => todo.getTodos(setIsLoading)}>Нажми чтобы обновить список</Button>  
+            <div className="buttons">
+                <Button 
+                    style={{margin: "3rem 0 5rem 0", fontSize: "2rem"}} 
+                    onClick={() => todo.getTodos(setIsLoading)}>
+                        Нажми чтобы обновить список
+                </Button>  
+
+                <input type="text" onChange={(e) => setNewTodo({...newTodo, title: e.target.value})}/>
+                <Button 
+                    style={{margin: "3rem 0 5rem 0", fontSize: "2rem"}} 
+                    onClick={() => todo.addTodo(2, newTodo.title)}>
+                        Добавить задачу
+                </Button>  
+            </div>
+           
         </section>
         <section className="todos">
             <div className="todos-wrapper">

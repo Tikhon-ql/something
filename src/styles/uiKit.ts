@@ -5,8 +5,8 @@ export const Button = styled.div`
 
     background-color: black;
 
-    color: white;
-    font-size: 32px;
+    color: #dddddd;
+    font-size: 20px;
     line-height: 50px;
     font-weight: 600;
     width: max-content;

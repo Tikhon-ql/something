@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "jsx": "react-jsx",
+    "resolveJsonModule": true
   },
   "include": [
     "src",

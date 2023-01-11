@@ -2,10 +2,10 @@ import {makeAutoObservable} from "mobx"
 import { method } from "../api/methods"
 
 export type TodoType = {
-    userId: number,
-    id: number,
+    userId?: number,
+    id?: number,
     title: string,
-    completed: boolean
+    completed?: boolean
 }
 
 class Todo {
@@ -15,11 +15,11 @@ class Todo {
         makeAutoObservable(this)
     }
 
-    addTodo(todo: TodoType) {
-        this.todos.push(todo)
-    }
     removeTodo(_id: number) {
         this.todos = this.todos.filter(t => t.id !== _id)
+    }
+    addTodo(_userId: number, _title: string) {
+        this.todos.push({userId: _userId, id: this.todos[this.todos.length-1].id+1, title: _title, completed: false})
     }
     completeTodo(_id: number) {
         this.todos.map(t => {
@@ -32,9 +32,14 @@ class Todo {
     async getTodos(setIsLoading: Function) {
         try {
             setIsLoading(true)
-            const todos: TodoType[] = (await method.getTodos()).data;
+            const newTodos: TodoType[] = (await method.getTodos()).data;
 
-            this.todos = [...todos]
+            newTodos.map(elem => {
+                if(this.todos.length == 0) 
+                    this.todos.push(elem)
+                else 
+                    !this.todos.find(item => item.id == elem?.id) && this.todos.push(elem)
+            })
         }
         catch(e) {
             alert(e)
