@@ -55,6 +55,25 @@
             }
         }
     }
+
+    &.error {
+        .modal {
+            &__inner {
+                padding: 6rem 0;
+                
+                width: 100%;
+                height: auto;
+
+                align-self: flex-start;
+
+                border-radius: 0;
+            }
+            &__content > p {
+                text-align: center;
+                font-size: 2.5rem;
+            }
+        }
+    }
     
     &__close-btn { 
         display: flex;

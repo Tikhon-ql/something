@@ -7,8 +7,6 @@
     border-bottom: 2px solid black;
     z-index: 100;
 
-    padding: 2rem 5rem;
-
     &__wrapper {
         height: 100%;
         display: flex;
@@ -21,7 +19,7 @@
         flex-direction: row;
         align-items: center;
 
-        &-links {
+        .navigation-links {
             display: flex;
             flex-direction: row;
             gap: 4rem;
@@ -33,6 +31,31 @@
                 &.mobile {
                     flex-direction: column;
                     gap: 3rem;
+                }
+            }
+
+            
+            .navigation-link {
+                text-decoration: none;
+                color: black;
+                font-size: 2rem;
+                line-height: 3rem;
+
+                transition: all .1s ease-in-out;
+
+                @media (min-width: $breakp767) {
+                    &:hover {
+                        transform: scale(1.07);
+                    }
+                }
+
+                &.logo {
+                    position: relative;
+                    left: 0;
+                }
+
+                @media (max-width: $breakp767) {
+                    color: #fff;
                 }
             }
         }
@@ -78,30 +101,6 @@
                 }
             }
 
-        }
-
-        &-link {
-            text-decoration: none;
-            color: black;
-            font-size: 2rem;
-            line-height: 3rem;
-
-            transition: all .1s ease-in-out;
-
-            @media (min-width: $breakp767) {
-                &:hover {
-                    transform: scale(1.07);
-                }
-            }
-
-            &.logo {
-                position: relative;
-                left: 0;
-            }
-
-            @media (max-width: $breakp767) {
-                color: #fff;
-            }
         }
     }
 }

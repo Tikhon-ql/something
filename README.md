@@ -8,11 +8,3 @@
 > 2) **Write** `npm install && npm start` in terminal.
 
 > 3) App **is running** in http://localhost:9000/ port.
-
-
-## You can also use docker.
-> 1) **Write** `docker build -t smth .` in terminal.
-
-> 2) **Next write** `docker run -p <host-port>:80 smth` to start container. 
-
-> 3) **Open** `http://localhost:<host-port>`

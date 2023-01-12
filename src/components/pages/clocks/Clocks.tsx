@@ -1,11 +1,11 @@
-import { method } from '../../api/methods';
+import { method } from '../../../api/methods';
 import React, { useEffect, useState } from 'react';
 import './_clocks.scss'
-import Loader from '../utilities/loader/Loader';
-import Modal from '../utilities/modal/Modal'
-import { Button } from '../../styles/uiKit';
-import time from '../../store/time';
-import modal, { ModalType } from '../../store/modal';
+import Loader from '../../utilities/loader/Loader';
+import Modal from '../../utilities/modal/Modal'
+import { Button } from '../../../styles/uiKit';
+import time from '../../../store/time';
+import modal, { ModalType } from '../../../store/modal';
 
 const Clocks = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)

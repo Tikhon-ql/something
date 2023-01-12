@@ -1,4 +1,42 @@
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
+
+
+.buttons {
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        @media (max-width: $breakp767) {
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            input {
+                border: 2px solid black;
+                height: 5rem;
+
+                font-size: 2rem;
+
+                &:focus {
+                    border: 2px solid #79CAE8;
+                    outline: none;
+                }
+            }
+        }
+
+        .black-btn {
+            margin: 0;
+        }
+    }
+}
 
 .todos {
     &-wrapper {
@@ -31,8 +69,8 @@
                 }
     
                 &__id {
-                    min-width: 3rem;
                     font-size: 2rem;
+                    margin-right: 1.5rem;
                 }
                 &__status {
                     min-width: 20px;

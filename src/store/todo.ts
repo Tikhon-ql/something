@@ -1,5 +1,6 @@
 import {makeAutoObservable} from "mobx"
 import { method } from "../api/methods"
+import modal, { ModalType } from "./modal"
 
 export type TodoType = {
     userId?: number,
@@ -19,7 +20,21 @@ class Todo {
         this.todos = this.todos.filter(t => t.id !== _id)
     }
     addTodo(_userId: number, _title: string) {
-        this.todos.push({userId: _userId, id: this.todos[this.todos.length-1].id+1, title: _title, completed: false})
+        if(_title === "") {
+            modal.toggle(true, ModalType.error)
+            modal.setErrorMessage("Введите описание задачи")
+            
+            return
+        }
+        if(this.todos.find(item => item.title == _title)) {
+            modal.toggle(true, ModalType.error)
+            modal.setErrorMessage("Задача уже существует")
+
+            return
+        }
+        else {
+            this.todos.push({userId: _userId || 1, id: this.todos[this.todos.length-1]?.id+1 || 1, title: _title, completed: false})
+        }
     }
     completeTodo(_id: number) {
         this.todos.map(t => {
