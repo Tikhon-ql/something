@@ -35,6 +35,24 @@ export const Button = styled.a`
     }
 `
 
+
+export const Input = styled.input`
+    border: 2px solid black;
+    height: 5rem;
+    width: 30rem;
+
+    font-size: 2rem;
+
+    @media (max-width: 576px) {
+        width: 100%;
+    }
+
+    &:focus {
+        border: 2px solid #79CAE8;
+        outline: none;
+    }
+`
+
 export const Container = styled.div`
     max-width: 1200px;
 

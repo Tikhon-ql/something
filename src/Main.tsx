@@ -7,6 +7,9 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './components/pages/home/Home';
 import Todos from './components/pages/todos/Todo';
+import Account from './components/pages/account/Account';
+import Login from './components/pages/login/Login';
+import auth from './store/auth';
 
 export const Main = () => {
     return <>
@@ -17,6 +20,8 @@ export const Main = () => {
                     <Route path='/' element={<Home />}/>
                     <Route path='/clocks' element={<Clocks />}/>
                     <Route path='/todos' element={<Todos />}/>
+                    <Route path='/account' element={<Account />} />
+                    <Route path='/login' element={<Login />} />
                 </Routes>
             </Container>
             <Footer />

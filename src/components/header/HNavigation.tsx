@@ -8,6 +8,7 @@ export const Links = ({type}) => {
             <Link className="navigation-link" to="/" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Главная</Link>
             <Link className="navigation-link" to="/clocks" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Время</Link>
             <Link className="navigation-link" to="/todos" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Список дел</Link>
+            <Link className="navigation-link" to="/account" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Аккаунт</Link>
         </div>
     </>
 }
