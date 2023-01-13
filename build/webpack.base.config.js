@@ -3,8 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+process.env.BABEL_ENV = 'development';
+
 module.exports = {
-	context: path.resolve(__dirname, '../'),
 	mode: 'development',
 	entry: path.resolve(__dirname, '../', 'src', 'index.tsx'),
 	output: {
@@ -23,12 +24,15 @@ module.exports = {
             },
 			{
 				test: /\.(s*)css$/,
-				include: [path.resolve(__dirname, '../', 'src')],
 				use: [
 					MiniCssExtractPlugin.loader,
-				  	"css-loader",
+					"css-loader",
 				  	"sass-loader",
 				],
+			},
+			{
+				test: /\.svg$/,
+				use: 'file-loader',
 			}
 		],
 	},

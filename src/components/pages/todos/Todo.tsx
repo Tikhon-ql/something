@@ -7,50 +7,53 @@ import { Button } from '../../../styles/uiKit';
 import Close from '../../../images/close-dark.svg'
 import ModalWindow from '../../../components/utilities/modal/Modal';
 import modal, { ModalType } from '../../../store/modal';
+import { Container } from '../../../styles/uiKit';
 
 const Todos = observer(() => {
     const [isLoading, setIsLoading] = useState(false)
     const [newTodo, setNewTodo] = useState<TodoType>({title: ""})
 
-    return <>
-        <section className="buttons">
-            <div className="buttons__wrapper">
-                <Button 
-                    className="black-btn"
-                    onClick={() => todo.getTodos(setIsLoading)}>
-                        Нажми чтобы обновить список
-                </Button>  
-
-                <div>
-                    <input type="text" onChange={(e) => setNewTodo({...newTodo, title: e.target.value})}/>
+    return (
+        <Container minHeight={"100vh"}>
+            <section className="buttons">
+                <div className="buttons__wrapper">
                     <Button 
                         className="black-btn"
-                        onClick={() => todo.addTodo(2, newTodo.title)}>
-                            Добавить задачу
+                        onClick={() => todo.getTodos(setIsLoading)}>
+                            Нажми чтобы обновить список
                     </Button>  
-                </div>
-            </div>
-           
-        </section>
-        <section className="todos">
-            <div className="todos-wrapper">
-                {todo.todos.map(t => 
-                    <div className='todo-item' key={t.id}>
-                        <p className='todo-item__id'>{t.id}.</p>
-                        <input className={`todo-item__status`} type={'checkbox'} checked={t.completed} onChange={() => todo.completeTodo(t.id)} />
-                        <p className={`todo-item__title status-${t.completed}`}>{t.title}</p>
-                        <div className='todo-item__close'><img src={Close} alt=""  onClick={() => todo.removeTodo(t.id)}/></div>
+
+                    <div>
+                        <input type="text" onChange={(e) => setNewTodo({...newTodo, title: e.target.value})}/>
+                        <Button 
+                            className="black-btn"
+                            onClick={() => todo.addTodo(2, newTodo.title)}>
+                                Добавить задачу
+                        </Button>  
                     </div>
-                )}
-            </div>
-        </section>
+                </div>
+            
+            </section>
+            <section className="todos">
+                <div className="todos-wrapper">
+                    {todo.todos.map(t => 
+                        <div className='todo-item' key={t.id}>
+                            <p className='todo-item__id'>{t.id}.</p>
+                            <input className={`todo-item__status`} type={'checkbox'} checked={t.completed} onChange={() => todo.completeTodo(t.id)} />
+                            <p className={`todo-item__title status-${t.completed}`}>{t.title}</p>
+                            <div className='todo-item__close'><img src={Close} alt=""  onClick={() => todo.removeTodo(t.id)}/></div>
+                        </div>
+                    )}
+                </div>
+            </section>
 
-        <ModalWindow type={ModalType.error}>
-            <p>{modal.modals.error.message}</p>
-        </ModalWindow>
+            <ModalWindow type={ModalType.error}>
+                <p>{modal.modals.error.message}</p>
+            </ModalWindow>
 
-        {isLoading && <Loader isLoading={isLoading} />}
-    </>
+            {isLoading && <Loader isLoading={isLoading} />}
+        </Container>
+    )
 })
 
 export default Todos

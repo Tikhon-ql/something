@@ -1,13 +1,12 @@
 @import '../../../styles/variables.scss';
-
-body {
-    background: url(../../../images/mount.png);
-}
+@import '../../../styles/mixins.scss';
 
 .login {
-    margin-top: 10rem;
-    background: url(../../../images/mount.png);
-    
+    @include section-with-image(url(../../../images/mount.jpg));
+    border-bottom: 0;
+
+    height: auto;
+
     &__wrapper {
         display: flex;
         flex-direction: column;

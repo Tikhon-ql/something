@@ -1,0 +1,6 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.image-block {
+    @include section-with-image(url(../../../images/windows.jpg))
+}

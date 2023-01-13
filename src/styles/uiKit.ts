@@ -53,11 +53,11 @@ export const Input = styled.input`
 `
 
 export const Container = styled.div`
-    max-width: 1200px;
+    max-width: 1080px;
 
     min-height: ${props => props.minHeight || "auto"};
 
-    padding: 150px 20px 50px 20px;
+    padding: 0 20px 0 20px;
 
     margin: 0 auto;
 `
