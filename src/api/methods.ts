@@ -1,12 +1,8 @@
 import axios from "axios";
 import { TodoType } from "../store/todo";
+import { TimeParams } from "../store/time";
 
 const api = axios.create();
-
-type TimeParams = {
-    timezone: string,
-    city: string
-}
 
 export const method = {
     getTime(params: TimeParams = {timezone: "Europe", city: "Minsk"}) {

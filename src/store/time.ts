@@ -6,6 +6,11 @@ export type DateTime = {
     dayOfYear: number,
 }
 
+export type TimeParams = {
+    timezone: string,
+    city: string
+}
+
 class Time {
     time: DateTime = {
         date: new Date().toLocaleString(),

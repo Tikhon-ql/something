@@ -8,14 +8,12 @@ export const Button = styled.a`
     background-color: black;
 
     color: #dddddd;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
     font-weight: 600;
 
     width: max-content;
-    padding: 2rem 5rem;
-    margin: 3rem auto 0 auto;
-    text-align: center;
+    padding: 2rem 4rem;
 
     transition: all 0.3s ease;
 
@@ -28,10 +26,9 @@ export const Button = styled.a`
     @media (max-width: 576px) {
         padding: 2rem;
 
-        font-size: 20px;
-        line-height: 30px;
-
-        width: 100%;
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: unset !important;
     }
 `
 
@@ -44,7 +41,9 @@ export const Input = styled.input`
     font-size: 2rem;
 
     @media (max-width: 576px) {
-        width: 100%;
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: unset !important;
     }
 
     &:focus {

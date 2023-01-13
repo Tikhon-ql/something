@@ -1,7 +1,12 @@
 @import '../../../styles/variables.scss';
 
+body {
+    background: url(../../../images/mount.png);
+}
+
 .login {
     margin-top: 10rem;
+    background: url(../../../images/mount.png);
     
     &__wrapper {
         display: flex;
@@ -17,5 +22,18 @@
         align-items: center;
 
         gap: 2rem;
+    }
+    &__buttons {
+        margin-top: 5rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        width: 100%;
+
+        .black-btn {
+            min-width: 45rem;
+        }
     }
 }

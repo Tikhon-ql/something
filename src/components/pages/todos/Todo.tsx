@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {observer} from "mobx-react-lite"
 import todo, { TodoType } from '../../../store/todo';
 import Loader from '../../utilities/loader/Loader';

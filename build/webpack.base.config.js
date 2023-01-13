@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { encode } = require('punycode');
 
 module.exports = {
 	context: path.resolve(__dirname, '../'),
@@ -23,34 +22,14 @@ module.exports = {
                 exclude: /node_modules/,
             },
 			{
-				test: /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/,
+				test: /\.(s*)css$/,
+				include: [path.resolve(__dirname, '../', 'src')],
 				use: [
-					{
-						loader: "file-loader",
-						options: {
-							outputPath: './images/',
-						  	name: '[name].[ext]',
-						  	encoding: true,
-						},
-					}
+					MiniCssExtractPlugin.loader,
+				  	"css-loader",
+				  	"sass-loader",
 				],
-			},
-			{
-				test: /\.s[ac]ss$/i,
-				include: [path.resolve(__dirname, '../', 'node_modules'), path.resolve(__dirname, '../', 'src')],
-				use: [
-				  // Creates `style` nodes from JS strings
-				  "style-loader",
-				  // Translates CSS into CommonJS
-				  "css-loader",
-				  // Compiles Sass to CSS
-				  "sass-loader",
-				],
-			  },
-			  {
-				test: /\.css$/i,
-				use: ["style-loader", "css-loader"],
-			  }
+			}
 		],
 	},
 	plugins: [

@@ -1,7 +1,7 @@
 import './_modal-template.scss'
 import CloseBtn from '../../../images/close.svg'
 import modal, { ModalType } from '../../../store/modal'
-import React, { useEffect, FC, useState } from 'react';
+import React, { FC } from 'react';
 import {observer} from "mobx-react-lite"
 
 const Modal: FC<{children: React.ReactNode, type: ModalType}> = observer(({children, type}) => {

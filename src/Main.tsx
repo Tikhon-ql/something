@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/base.scss';
 import { Container } from './styles/uiKit';
 import { HashRouter, Route, Routes } from 'react-router-dom'
@@ -9,7 +8,6 @@ import Home from './components/pages/home/Home';
 import Todos from './components/pages/todos/Todo';
 import Account from './components/pages/account/Account';
 import Login from './components/pages/login/Login';
-import auth from './store/auth';
 
 export const Main = () => {
     return <>

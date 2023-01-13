@@ -1,5 +1,3 @@
-
-import React from 'react';
 import {Link} from 'react-router-dom'
 import './_header.scss'
 import Logo from '../../images/server.svg'

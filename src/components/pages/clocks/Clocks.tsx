@@ -1,5 +1,4 @@
-import { method } from '../../../api/methods';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './_clocks.scss'
 import Loader from '../../utilities/loader/Loader';
 import Modal from '../../utilities/modal/Modal'
