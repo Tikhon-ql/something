@@ -16,6 +16,12 @@
             flex-direction: row;
             gap: 4rem;
 
+                
+            @media (max-width: $breakp576) {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
             .navigation-link {
                 text-decoration: none;
                 color: black;
