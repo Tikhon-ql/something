@@ -41,7 +41,7 @@ class Auth {
                     this.userData.name = user.name
 
                     localStorage.setItem('isAuth', "true")
-                    window.location.replace('/')
+                    window.location.replace('#/account')
 
                     return
                 }
