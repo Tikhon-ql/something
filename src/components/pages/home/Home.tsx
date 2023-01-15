@@ -7,11 +7,11 @@ import './_home.scss'
 const Home = observer(() => {
 
     useEffect(() => {
-        header.toggle(true)
+        header.setIsTransparent(true)
 
         return () => {
             console.log("unmount")
-            header.toggle(false)
+            header.setIsTransparent(false)
         };
     }, [])
 

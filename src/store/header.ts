@@ -7,9 +7,8 @@ class Header {
         makeAutoObservable(this)
     }
 
-    toggle(_value: boolean) {
+    setIsTransparent(_value: boolean) {
         this.isTransparent = _value;
-        console.log(this.isTransparent)
     }
 }
 

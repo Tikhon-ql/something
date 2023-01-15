@@ -11,19 +11,18 @@ const Login = observer(() => {
     const [creds, setCreds] = useState<LoginType>({login: "", password: ""})
 
     useEffect(() => {
-        header.toggle(true)
+        header.setIsTransparent(true)
     
         return () => {
-            console.log("unmount")
-            header.toggle(false)
+            header.setIsTransparent(false)
         };
     }, [])
 
     return (
-        <section id='login' className='login'>
+        <section style={{height: "100vh"}} id='login' className='login'>
             <Container>
                 <div className="login__wrapper">
-                    <h2>Login</h2>
+                    <h2>Войдите в аккаунт</h2>
                     <div className='login__form'>
                         <Input placeholder="Enter login" type="text" onChange={(e) => setCreds({...creds, login: e.target.value})}/>
                         <Input placeholder="Enter password" type="password" onChange={(e) => setCreds({...creds, password: e.target.value})}/>
@@ -41,7 +40,7 @@ const Login = observer(() => {
                             </Button>  
                         </div>
 
-                        {!auth.isAuth && modal.modals.error.message}
+                        {!auth.isAuth && <p style={{color: "#c30303"}}>{modal.modals.error.message}</p>}
                     </div>
                 </div>
             </Container>

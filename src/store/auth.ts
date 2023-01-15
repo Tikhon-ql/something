@@ -28,7 +28,6 @@ class Auth {
     }
 
     register(_creds: LoginType) {
-        modal.toggle(true, ModalType.error)
         modal.setErrorMessage("Данная функция пока не добавлена")
     }
     isUserExist(_creds: LoginType) {
@@ -46,7 +45,6 @@ class Auth {
                     return
                 }
                 else {
-                    modal.toggle(true, ModalType.error)
                     modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
                 }
             })
