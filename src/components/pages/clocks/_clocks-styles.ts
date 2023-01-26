@@ -1,30 +1,17 @@
-@import '../../../styles/variables.scss';
+import styled from 'styled-components';
+import '../../../styles/variables'
+import { $Gray, $White, $breakp1200, $breakp576} from '../../../styles/variables';
 
-.clocks {
-    &__wrapper {
+export const ClocksSection = styled.section`
+    .clocks__wrapper {
         position: relative;
         padding: 10rem 5rem;
 
-        background-color: $DeepGray;
-        border-radius: 1rem;
+        background-color: ${$Gray};
         z-index: 1;
 
         overflow: hidden;
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            background: center/cover url(../../../images/clock.jpg) no-repeat;
-            opacity: 0.8;
-            z-index: -1;
-        }
         
-
         z-index: 2;
 
         display: flex;
@@ -32,11 +19,11 @@
         justify-content: space-around;
         gap: 50px;
 
-        @media (max-width: $breakp1200) {
+        @media (max-width: ${$breakp1200}) {
             flex-direction: column;
             gap: 30px;
         }
-        @media (max-width: $breakp576) {
+        @media (max-width: ${$breakp576}) {
             padding: 20px;
         }
 
@@ -48,17 +35,17 @@
         .subheadline { 
             margin-bottom: 10px;
 
-            @media (max-width: $breakp576) {
+            @media (max-width: ${$breakp576}) {
                 font-size: 32px;
             }
         }
     }
-    &__info {
+    .clocks__info {
         font-size: 20px;
         line-height: 30px;
         font-weight: 600;
         cursor: pointer;
-       
+    
         width: max-content;
 
         &:hover {
@@ -70,4 +57,4 @@
     .black-btn {
         margin: 3rem auto 0 auto;
     }
-}
+`

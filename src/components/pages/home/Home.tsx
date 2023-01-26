@@ -1,33 +1,32 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
-import header from '../../../store/header';
+import header, { HeaderColors } from '../../../store/header';
 import { Container } from '../../../styles/uiKit';
-import './_home.scss'
+import { MainSection } from './_home-styles';
 
 const Home = observer(() => {
 
     useEffect(() => {
-        header.setIsTransparent(true)
+        header.setIsTransparent(true, HeaderColors.white)
 
         return () => {
-            console.log("unmount")
             header.setIsTransparent(false)
         };
     }, [])
 
     return (<>
 
-        <section className='image-block'>
+        <MainSection className='image-block'>
             <Container>
                 <div className="image-block__wrapper">
                     <h1>Widgets Site</h1>
                     <span className='paragraph' style={{fontStyle: "italic"}}>developed with ReactJS</span>
                 </div>
             </Container>
-        </section>
+        </MainSection>
 
         <Container>
-            <section>
+            <section className="text">
                 <p className='paragraph'>
                     Non tellus ante primis class morbi facilisi rhoncus malesuada nec habitant fermentum maximus, leo ipsum parturient pellentesque congue accumsan suscipit 
                     lacus nostra lectus neque, inceptos donec lacinia pharetra dapibus rutrum nullam vitae etiam ornare suspendisse. Etiam tincidunt blandit fames himenaeos 

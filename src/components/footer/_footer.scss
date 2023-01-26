@@ -4,7 +4,7 @@
     width: 100%;
     background-color: $DeepGray;
 
-    border-top: 2px solid black;
+    border-top: 2px solid $BorderColor;
     
     &__navigation {
         display: flex;
@@ -24,7 +24,7 @@
 
             .navigation-link {
                 text-decoration: none;
-                color: black;
+                color: $Black;
                 font-size: 2rem;
                 line-height: 3rem;
     

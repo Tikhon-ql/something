@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {$headerHeight, $Gray} from './variables';
 
 export const Button = styled.a`
     display: flex;
@@ -54,10 +55,47 @@ export const Input = styled.input`
 
 export const Container = styled.div`
     max-width: 1080px;
+    width: 100%;
 
     min-height: ${props => props.minHeight || "auto"};
 
     padding: 0 20px 0 20px;
 
     margin: 0 auto;
+`
+
+export const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: ${props => props.direction};
+    justify-content: ${props => props.justufy};
+    align-items: ${props => props.align};
+`
+
+export const SectionWithImage = styled.section`
+    z-index: 1;
+    height: calc(100vh - ${$headerHeight});
+    border-bottom: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -${$headerHeight};
+        left: 0;
+
+        width: 100%;
+        height: calc(100% + ${$headerHeight});
+
+        background: ${props => `left/cover url(${props.img}) ${$Gray} no-repeat`};
+        opacity: 0.7;
+        filter: blur(2px);
+
+        z-index: -1;
+    }
 `

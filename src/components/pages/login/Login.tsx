@@ -4,14 +4,15 @@ import { Button, Input } from '../../../styles/uiKit';
 import modal from '../../../store/modal';
 import auth, { LoginType } from '../../../store/auth';
 import { Container } from '../../../styles/uiKit';
-import './_login.scss';
-import header from '../../../store/header';
+import header, { HeaderColors } from '../../../store/header';
+import { LoginSection } from './_login-styles';
+import Mount from "../../../images/mount.jpg"
 
 const Login = observer(() => {
     const [creds, setCreds] = useState<LoginType>({login: "", password: ""})
 
     useEffect(() => {
-        header.setIsTransparent(true)
+        header.setIsTransparent(true, HeaderColors.dark)
     
         return () => {
             header.setIsTransparent(false)
@@ -19,7 +20,7 @@ const Login = observer(() => {
     }, [])
 
     return (
-        <section style={{height: "100vh"}} id='login' className='login'>
+        <LoginSection imgUrl={Mount} className="login">
             <Container>
                 <div className="login__wrapper">
                     <h2>Войдите в аккаунт</h2>
@@ -44,7 +45,7 @@ const Login = observer(() => {
                     </div>
                 </div>
             </Container>
-        </section>
+        </LoginSection>
     )
 })
 

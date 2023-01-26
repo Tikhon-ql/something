@@ -1,5 +1,6 @@
+import React from 'react';
 import './styles/base.scss';
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Clocks from './components/pages/clocks/Clocks';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
@@ -8,9 +9,10 @@ import Todos from './components/pages/todos/Todo';
 import Account from './components/pages/account/Account';
 import Login from './components/pages/login/Login';
 
+
 export const Main = () => {
     return <>
-        <HashRouter>
+        <BrowserRouter>
             <Header/>
             <Routes>
                 <Route path='/' element={<Home />}/>
@@ -20,6 +22,6 @@ export const Main = () => {
                 <Route path='/login' element={<Login />} />
             </Routes>
             <Footer />
-        </HashRouter>
+        </BrowserRouter>
     </>
 }

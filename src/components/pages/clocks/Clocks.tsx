@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import './_clocks.scss'
 import Loader from '../../utilities/loader/Loader';
 import Modal from '../../utilities/modal/Modal'
 import { Button } from '../../../styles/uiKit';
 import time from '../../../store/time';
 import modal, { ModalType } from '../../../store/modal';
 import { Container } from '../../../styles/uiKit';
+import { ClocksSection } from './_clocks-styles';
 
 const Clocks = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)
@@ -16,7 +16,7 @@ const Clocks = () => {
 
     return (<>
         <Container minHeight={"100vh"} className="container">
-            <section className="clocks">
+            <ClocksSection className="clocks">
                 <div className="clocks__wrapper">
                     <div>
                         <h3 className="subheadline">Дата и время</h3>
@@ -29,7 +29,7 @@ const Clocks = () => {
                 </div>
                 <Button className="black-btn" onClick={() => time.getTime(setIsLoading)}>Нажми чтобы обновить время!</Button>
                 <p className="clocks__info" onClick={() => modal.toggle(true, ModalType.justModal)}>Показать информацию</p>
-            </section>
+            </ClocksSection>
         </Container>
         <Loader isLoading={isLoading} />
 
