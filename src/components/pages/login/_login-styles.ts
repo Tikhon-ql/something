@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import '../../../styles/variables'
+import '../../../styles/uiKit'
 import { SectionWithImage } from '../../../styles/uiKit';
-import { $Gray} from '../../../styles/variables';
-import img from "../../../images/mount.jpg"
+import { $Gray} from '../../../styles/uiKit';
+import img from "../../../styles/images/mount.jpg"
 
 export const LoginSection = styled(SectionWithImage)`
     height: 100vh;

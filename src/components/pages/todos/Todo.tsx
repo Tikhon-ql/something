@@ -2,12 +2,12 @@ import { useState } from 'react';
 import {observer} from "mobx-react-lite"
 import todo, { TodoType } from '../../../store/todo';
 import Loader from '../../utilities/loader/Loader';
-import './_todo.scss'
 import { Button } from '../../../styles/uiKit';
-import Close from '../../../images/close-dark.svg'
+import Close from '../../../styles/images/close-dark.svg'
 import ModalWindow from '../../../components/utilities/modal/Modal';
 import modal, { ModalType } from '../../../store/modal';
 import { Container } from '../../../styles/uiKit';
+import { TodosSection, ButtonsSection } from './_todo-styles';
 
 const Todos = observer(() => {
     const [isLoading, setIsLoading] = useState(false)
@@ -15,7 +15,7 @@ const Todos = observer(() => {
 
     return (
         <Container minHeight={"100vh"}>
-            <section className="buttons">
+            <ButtonsSection className="buttons">
                 <div className="buttons__wrapper">
                     <Button 
                         className="black-btn"
@@ -32,9 +32,9 @@ const Todos = observer(() => {
                         </Button>  
                     </div>
                 </div>
-            
-            </section>
-            <section className="todos">
+            </ButtonsSection>
+
+            <TodosSection className="todos">
                 <div className="todos-wrapper">
                     {todo.todos.map(t => 
                         <div className='todo-item' key={t.id}>
@@ -45,7 +45,7 @@ const Todos = observer(() => {
                         </div>
                     )}
                 </div>
-            </section>
+            </TodosSection>
 
             <ModalWindow type={ModalType.error}>
                 <p>{modal.modals.error.message}</p>

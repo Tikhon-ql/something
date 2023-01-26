@@ -1,4 +1,18 @@
-@import './variables.scss';
+$breakp450: 450px;
+$breakp576: 576px;
+$breakp767: 767px;
+$breakp991: 991px;
+$breakp1200: 1200px;
+$breakp1400: 1400px;
+
+$Gray: #eeecec;
+$DeepGray: #ececec;
+$BorderColor: #666666;
+$Black: #000000;
+$White: #ffffff;
+
+$transition: all .2s ease-in;
+$header-height: 100px;
 
 * {
 	box-sizing: border-box;
@@ -7,7 +21,7 @@
 
 @font-face {
 	font-family: 'Cavier-Dream';
-	src: url(../fonts/caviar-dreams.ttf);
+	src: url(./fonts/caviar-dreams.ttf);
 }
 
 body,
@@ -15,6 +29,18 @@ html {
 	font: 600 10px/1.5 'Cavier-Dream', sans-serif;
 	height: 100%;
     background-color: $White;
+
+	::-webkit-scrollbar {
+		width: 10px; 
+		height: 8px;
+		background-color: $White;
+	}
+	
+	::-webkit-scrollbar-thumb {
+		background-color: $DeepGray;
+		border: 1px solid $BorderColor;
+	}
+
 }
 
 #root {

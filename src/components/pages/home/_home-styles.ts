@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
 import styled from 'styled-components';
-import '../../../styles/variables'
+import '../../../styles/uiKit'
 import { SectionWithImage } from '../../../styles/uiKit';
-import { $Gray, $White} from '../../../styles/variables';
-import img from "../../../images/mirors.jpg"
+import { $Gray, $White, $breakp767} from '../../../styles/uiKit';
+import img from "../../../styles/images/mirors.jpg"
 
 export const MainSection = styled(SectionWithImage)`
     height: 100vh;
@@ -14,6 +13,11 @@ export const MainSection = styled(SectionWithImage)`
     &::after {
         background: ${`left/cover url(${img}) ${$Gray} no-repeat`};
         filter: none;
+
+        @media (max-width: ${$breakp767}) {
+            background-position: center;
+            opacity: 0.2;
+        }
     }
 
     &::before {
@@ -27,6 +31,8 @@ export const MainSection = styled(SectionWithImage)`
         height: 100%;
 
         background: linear-gradient(to bottom, transparent 0%, transparent 60%, ${$White} 100%);
+
+        
     }
     border-bottom: none;
 `

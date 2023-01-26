@@ -6,7 +6,7 @@ import auth, { LoginType } from '../../../store/auth';
 import { Container } from '../../../styles/uiKit';
 import header, { HeaderColors } from '../../../store/header';
 import { LoginSection } from './_login-styles';
-import Mount from "../../../images/mount.jpg"
+import Mount from "../../../styles/images/mount.jpg"
 
 const Login = observer(() => {
     const [creds, setCreds] = useState<LoginType>({login: "", password: ""})

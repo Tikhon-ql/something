@@ -1,6 +1,8 @@
-@import '../../../styles/variables.scss';
+import styled from 'styled-components';
+import '../../../styles/uiKit'
+import { $breakp767, $breakp991, $DeepGray, $breakp576, $transition, $White, $Black} from '../../../styles/uiKit';
 
-.modal {
+export const ModalWindow = styled.section`
     position: fixed;
     top: 0;
     left: 0;
@@ -16,7 +18,9 @@
 
     background-color: rgba(0, 0, 0, 0.75);
 
-    &__inner {
+    padding: 0;
+
+    .modal__inner {
         display: block;
         position: relative;
         z-index: 3;
@@ -26,13 +30,13 @@
 
         padding: 120px;
 
-        color: #fff;
+        color: ${$White};
 
         border-radius: 20px;
 
-        background-color: black;
+        background-color: ${$Black};
 
-        @media (max-width: $breakp767) {
+        @media (max-width: ${$breakp767}) {
             padding: 5rem 3rem;
 
             width: calc(100% - 40px);
@@ -75,7 +79,7 @@
         }
     }
     
-    &__close-btn { 
+    .modal__close-btn { 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -89,4 +93,4 @@
         top: 2rem;
         right: 2rem;
     }
-}
+`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import '../../../styles/variables'
-import { $Gray, $White, $breakp1200, $breakp576} from '../../../styles/variables';
+import '../../../styles/uiKit'
+import { $Gray, $White, $breakp1200, $breakp576} from '../../../styles/uiKit';
 
 export const ClocksSection = styled.section`
     .clocks__wrapper {

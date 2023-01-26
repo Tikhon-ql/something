@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import '../../styles/variables'
+import '../../styles/uiKit'
 import {  
     $DeepGray, 
     $BorderColor, 
     $breakp576, 
     $breakp767, 
     $Black, 
-} from '../../styles/variables';
+} from '../../styles/uiKit';
 
 export const SiteFooter = styled.footer`
     width: 100%;

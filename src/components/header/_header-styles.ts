@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import '../../styles/variables'
-import { $Gray, $BorderColor, $White, $breakp767, $Black, $headerHeight} from '../../styles/variables';
+import { $Gray, $BorderColor, $White, $breakp767, $Black, $headerHeight} from '../../styles/uiKit';
 
 export const SiteHeader = styled.header`
         position: sticky;
@@ -58,10 +57,10 @@ export const SiteHeader = styled.header`
                 gap: 4rem;
 
                 @media (max-width: ${$breakp767}) {
-                    .header__navigation.desktop {
+                    &.desktop {
                         display: none;
                     }
-                    .header__navigation.mobile {
+                    &.mobile {
                         flex-direction: column;
                         gap: 3rem;
                     }
