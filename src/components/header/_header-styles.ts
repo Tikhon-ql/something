@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
 import styled from 'styled-components';
 import '../../styles/variables'
 import { $Gray, $BorderColor, $White, $breakp767, $Black, $headerHeight} from '../../styles/variables';
 
-let location = window.location.hash;
-
-export const HeaderComponent = styled.header`
+export const SiteHeader = styled.header`
         position: sticky;
         width: 100%;
         border-bottom: 2px solid ${$BorderColor};
@@ -77,6 +74,8 @@ export const HeaderComponent = styled.header`
                     font-size: 2rem;
                     line-height: 3rem;
 
+                    user-select: none;
+
                     transition: all .1s ease-in-out;
 
                     @media (min-width: ${$breakp767}) {
@@ -98,6 +97,8 @@ export const HeaderComponent = styled.header`
             &-burger {
                 display: none;
 
+                user-select: none;
+
                 padding: 1rem 0;
 
                 @media (max-width: ${$breakp767}) {
@@ -112,6 +113,8 @@ export const HeaderComponent = styled.header`
 
                 div {
                     position: relative;
+
+                    user-select: none;
 
                     background-color: ${$Black};
 

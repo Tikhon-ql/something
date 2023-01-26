@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/base.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import Clocks from './components/pages/clocks/Clocks';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
@@ -12,7 +12,7 @@ import Login from './components/pages/login/Login';
 
 export const Main = () => {
     return <>
-        <BrowserRouter>
+        <HashRouter>
             <Header/>
             <Routes>
                 <Route path='/' element={<Home />}/>
@@ -22,6 +22,6 @@ export const Main = () => {
                 <Route path='/login' element={<Login />} />
             </Routes>
             <Footer />
-        </BrowserRouter>
+        </HashRouter>
     </>
 }

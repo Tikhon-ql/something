@@ -1,11 +1,11 @@
 
 import { Links } from '../../components/header/HNavigation';
 import { Container } from '../../styles/uiKit';
-import './_footer.scss'
+import { SiteFooter } from './_footer-styles';
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <SiteFooter className="footer">
             <Container style={{padding: "2rem"}}>
                 <div className="footer__wrapper">
                     <nav className="footer__navigation">
@@ -13,7 +13,7 @@ const Footer = () => {
                     </nav>
                 </div>
             </Container>
-        </footer>
+        </SiteFooter>
     )
 }
 

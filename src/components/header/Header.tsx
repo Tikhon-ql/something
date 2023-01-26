@@ -4,18 +4,18 @@ import Logo from '../../images/server.svg'
 import Navigation from './HNavigation';
 import { Container } from '../../styles/uiKit';
 import headerStore from '../../store/header';
-import { HeaderComponent } from './_header-styles';
+import { SiteHeader } from './_header-styles';
 
 const Header = observer(() => {
     return (
-        <HeaderComponent id="header" className={`header ${headerStore.headerStyle.isTransparent?`transparent ${headerStore.headerStyle.color}`:""}`}>
+        <SiteHeader id="header" className={`header ${headerStore.headerStyle.isTransparent?`transparent ${headerStore.headerStyle.color}`:""}`}>
             <Container className="container">
                 <div className="header__wrapper">
                     <Link className="header__navigation-link logo" to="/"><img width="60px" src={Logo} alt="" /></Link>
                     <Navigation />
                 </div>
             </Container>
-        </HeaderComponent>
+        </SiteHeader>
     )
 })
 
