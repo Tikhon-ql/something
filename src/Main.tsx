@@ -1,3 +1,4 @@
+import React from 'react';
 import './styles/base.scss';
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import Clocks from './components/pages/clocks/Clocks';
@@ -7,6 +8,7 @@ import Home from './components/pages/home/Home';
 import Todos from './components/pages/todos/Todo';
 import Account from './components/pages/account/Account';
 import Login from './components/pages/login/Login';
+
 
 export const Main = () => {
     return <>
