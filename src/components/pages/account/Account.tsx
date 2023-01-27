@@ -10,7 +10,7 @@ const Account = observer(() => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        !auth.isAuth?navigate("/login"):auth.updateInfo(); 
+        !auth.isAuth && navigate("/login"); 
     }, [auth.isAuth])
 
     return (

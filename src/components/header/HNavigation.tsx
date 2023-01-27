@@ -7,8 +7,8 @@ export const Links = ({type}) => {
     return <>
         <div className={`navigation-links ${type}`}>
             <Link className="navigation-link" to="/" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Главная</Link>
-            {auth.isAuth && <Link className="navigation-link" to="/clocks" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Время</Link>}
             {auth.isAuth && <Link className="navigation-link" to="/todos" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Список дел</Link>}
+            {auth.isAuth && <Link className="navigation-link" to="/films" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Мои фильмы</Link>}
             {auth.isAuth
             ?<Link className="navigation-link" to="/account" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Аккаунт</Link>
             :<Link className="navigation-link" to="/login" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Логин</Link>

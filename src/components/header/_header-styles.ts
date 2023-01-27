@@ -72,7 +72,7 @@ export const SiteHeader = styled.header`
                     color: ${$Black};
                     font-size: 2rem;
                     line-height: 3rem;
-                    font-family: "CavierDream-Bold";
+                    font-family: "Montserrat-Medium";
                     font-weight: 400;
 
                     user-select: none;

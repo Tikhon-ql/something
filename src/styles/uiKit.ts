@@ -27,6 +27,7 @@ export const Button = styled.a`
     font-size: 18px;
     line-height: 30px;
     font-weight: 600;
+    text-align: center;
 
     width: max-content;
     padding: 2rem 4rem;
@@ -78,7 +79,6 @@ export const Container = styled.div`
 
     margin: 0 auto;
 `
-
 export const FlexContainer = styled.div`
     display: flex;
     flex-direction: ${props => props.direction};

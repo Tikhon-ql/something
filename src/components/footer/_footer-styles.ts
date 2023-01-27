@@ -47,6 +47,7 @@ export const SiteFooter = styled.footer`
                 color: ${$Black};
                 font-size: 2rem;
                 line-height: 3rem;
+                font-family: 'Montserrat-Medium';
 
                 transition: all .1s ease-in-out;
 

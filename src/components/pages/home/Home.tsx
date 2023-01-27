@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import header, { HeaderColors } from '../../../store/header';
 import { Container } from '../../../styles/uiKit';
 import { MainSection, TextSection } from './_home-styles';
+import HeadSet from "../../../styles/images/home/headset.jpg"
+import q from "../../../styles/images/i.png"
 
 
 const Home = observer(() => {
@@ -26,9 +28,14 @@ const Home = observer(() => {
             </Container>
         </MainSection>
 
-        <Container>
-            <TextSection className="text">
-                <h3>ЧтО Это?</h3>
+        
+        <TextSection className="text">
+            <Container style={{position: "relative"}}>
+                <img className="q-image" src={q} alt="" />
+                <img className="q-image" src={q} alt="" />
+                <img className="q-image" src={q} alt="" />
+
+                <h3>Что Это?</h3>
                 <p className='paragraph'>
                     Сайт для взаимодействия с сервером и ресурсами на нём
                     <br />
@@ -39,20 +46,31 @@ const Home = observer(() => {
                 </p>
 
                 <h3>Зачем все это?</h3>
-                <p style={{textIndent: "50px"}} className='paragraph'>
-                    Cоздавать целый сайт лишь для того, чтобы хранить там список фильмов - нерационально, мягко говоря.
+                <p className='paragraph'>
+                    Верно: cоздавать целый сайт лишь для того, чтобы хранить там список фильмов - нерационально, мягко говоря.
                     Благо, имея под рукой статический IP, есть где развернуться. На сервере храняться книги, фильмы, музыка. Можно обращаться к этим файлам через адресную строку,
                     а можно через удобный UI отсылать api запросы, ответом на которые и будет искомый ресурс.  
                 </p>
-
+            </Container>
+            
+            <div className='image'>
+                <Container style={{position: "relative"}}>
+                    <div className="image-wrapper">
+                        <img src={HeadSet} alt="" />
+                    </div>
+                </Container>
+            </div>
+            
+            <Container>
                 <h3>Какие еще идеи?</h3>
                 <ul className='list'>
                     <li><span>Радио:</span> можно будет стримить кучу альбомов музыки прямо отсюда! (правда музыка будет не ваша)</li>
                     <li><span>Просмотр фильмов:</span> тоже самое что и радио, только с картинкой : )</li>
                     <li><span>Хранение собственных файлов:</span> можно будет использовать сервер как облако с данными, которыми можно будет управлять</li>
                 </ul>
-            </TextSection>
-        </Container>
+            </Container>
+        </TextSection>
+        
     </>)
 })
 

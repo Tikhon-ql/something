@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import '../../../styles/uiKit'
 import { $Gray, $White, $breakp1200, $breakp576} from '../../../styles/uiKit';
 
-export const ClocksSection = styled.section`
+export const FilmsSection = styled.section`
     .clocks__wrapper {
         position: relative;
         padding: 10rem 5rem;

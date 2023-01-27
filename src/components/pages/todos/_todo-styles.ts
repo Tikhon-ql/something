@@ -69,6 +69,8 @@ export const TodosSection = styled.section`
 `
 
 export const ButtonsSection = styled.section`
+    padding: 5rem 0 0 0;
+
     .buttons__wrapper {
         display: flex;
         flex-direction: row;
