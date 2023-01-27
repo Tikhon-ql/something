@@ -5,7 +5,6 @@ import { $Gray, $White, $breakp767} from '../../../styles/uiKit';
 import img from "../../../styles/images/mirors.jpg"
 
 export const MainSection = styled(SectionWithImage)`
-    height: 100vh;
     width: 100%;
 
     border-bottom: 0;

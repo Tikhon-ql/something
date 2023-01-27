@@ -6,7 +6,6 @@ import { $Gray} from '../../../styles/uiKit';
 import img from "../../../styles/images/mount.jpg"
 
 export const LoginSection = styled(SectionWithImage)`
-    height: 100vh;
     border-bottom: 0;
 
     &::after {
