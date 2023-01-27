@@ -20,13 +20,17 @@ $header-height: 100px;
 }
 
 @font-face {
-	font-family: 'Cavier-Dream';
-	src: url(./fonts/caviar-dreams.ttf);
+	font-family: 'CavierDream-Regular';
+	src: url(./fonts/CaviarDreams.ttf);
+}
+@font-face {
+	font-family: 'CavierDream-Bold';
+	src: url(./fonts/CaviarDreams_Bold.ttf);
 }
 
 body,
 html {
-	font: 600 10px/1.5 'Cavier-Dream', sans-serif;
+	font: 400 10px/1.5 'CavierDream-Regular', sans-serif;
 	height: 100%;
     background-color: $White;
 
@@ -74,8 +78,8 @@ h2 {
 
 h3 {
 	font-weight: 700;
-	font-size: 40px;
-	line-height: 56px;
+	font-size: 35px;
+	line-height: 45px;
 }
 
 h4 {

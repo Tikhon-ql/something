@@ -2,7 +2,8 @@ import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 import header, { HeaderColors } from '../../../store/header';
 import { Container } from '../../../styles/uiKit';
-import { MainSection } from './_home-styles';
+import { MainSection, TextSection } from './_home-styles';
+
 
 const Home = observer(() => {
 
@@ -19,47 +20,38 @@ const Home = observer(() => {
         <MainSection className='image-block'>
             <Container>
                 <div className="image-block__wrapper">
-                    <h1>Widgets Site</h1>
+                    <h1>О всяком</h1>
                     <span className='paragraph' style={{fontStyle: "italic"}}>developed with ReactJS</span>
                 </div>
             </Container>
         </MainSection>
 
         <Container>
-            <section className="text">
+            <TextSection className="text">
+                <h3>ЧтО Это?</h3>
                 <p className='paragraph'>
-                    Non tellus ante primis class morbi facilisi rhoncus malesuada nec habitant fermentum maximus, leo ipsum parturient pellentesque congue accumsan suscipit 
-                    lacus nostra lectus neque, inceptos donec lacinia pharetra dapibus rutrum nullam vitae etiam ornare suspendisse. Etiam tincidunt blandit fames himenaeos 
-                    elementum dictum per eleifend mus adipiscing erat, primis gravida velit rutrum parturient maximus odio commodo duis placerat, vitae suscipit nascetur 
-                    phasellus penatibus pulvinar nostra tempus conubia faucibus. Tortor est sit euismod eget tincidunt aenean odio lorem, fames ornare diam malesuada magnis 
-                    luctus pulvinar, laoreet libero conubia ultricies netus aliquam aliquet. Volutpat suspendisse aenean est curabitur varius vestibulum, commodo dictum nam 
-                    placerat ut finibus venenatis, erat primis ad posuere sagittis. Finibus erat eros commodo quis metus auctor ac primis ultricies ornare, lectus nam donec 
-                    platea nostra conubia nibh facilisi natoque, sodales euismod placerat libero feugiat ex ullamcorper accumsan urna.
+                    Сайт для взаимодействия с сервером и ресурсами на нём
+                    <br />
+                    <br />
+                    Идея создания сайта сформировалась в тот момент, когда после просмотра одного очень неплохого фильма, пользователь не нашел места, куда записать его название.
+                    Заметки в телефоне он пробовал, это не совсем удобно: нет поиска, фильмы там могу повторяться, да и вообще. Кроме названия фильма хочется хранить свою краткую рецензию на него,
+                    оценку от 0 до 10 в удобном читабельном виде. С возможностью добавить или найти забытый фильм.  
                 </p>
 
-                <p className='paragraph'>
-                    Nisi sem euismod tincidunt senectus augue, vulputate lobortis dictum elit placerat etiam, imperdiet sapien dis molestie. Condimentum id netus finibus 
-                    tortor libero dui odio diam, in etiam ex porta ornare bibendum penatibus, elementum morbi platea fusce tempus inceptos leo. Porttitor feugiat eleifend finibus 
-                    ac lorem pulvinar aliquet fermentum efficitur, hac adipiscing curae ornare venenatis accumsan lectus urna, quisque pretium enim lobortis phasellus netus viverra 
-                    commodo. Suspendisse ornare in ad suscipit convallis lacus maximus at magna, commodo sagittis felis amet risus finibus habitant tristique porttitor montes, eget 
-                    cursus ullamcorper rhoncus primis mauris nibh feugiat. Iaculis mattis consequat neque eros habitant, nec aliquet risus justo turpis commodo, leo sapien ultrices
-                    malesuada. Tincidunt sodales eleifend inceptos lacinia eget id varius condimentum, bibendum non rutrum iaculis convallis vestibulum fusce, fringilla pulvinar 
-                    dictumst libero ridiculus est malesuada. Fames laoreet dui nam porta congue magnis mollis parturient auctor in, efficitur convallis vestibulum tortor non ante 
-                    nunc ad diam facilisi nascetur, donec pellentesque placerat curabitur vel quam magna inceptos nullam.
+                <h3>Зачем все это?</h3>
+                <p style={{textIndent: "50px"}} className='paragraph'>
+                    Cоздавать целый сайт лишь для того, чтобы хранить там список фильмов - нерационально, мягко говоря.
+                    Благо, имея под рукой статический IP, есть где развернуться. На сервере храняться книги, фильмы, музыка. Можно обращаться к этим файлам через адресную строку,
+                    а можно через удобный UI отсылать api запросы, ответом на которые и будет искомый ресурс.  
                 </p>
 
-                <p className='paragraph'>
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit sem cras rhoncus convallis tempor est, ad et proin neque semper tempus lacus tellus dapibus maximus malesuada 
-                    nulla. Proin convallis finibus vel platea odio fames sed vitae in, feugiat netus volutpat ante per consequat torquent imperdiet mattis dis, elit metus ex sodales massa 
-                    molestie sem accumsan. Elementum platea placerat tellus blandit mi, facilisi adipiscing fames potenti urna, vulputate curabitur torquent egestas. Sapien ultrices metus 
-                    tellus natoque sem enim at dolor maximus proin, senectus nunc parturient dis ridiculus consectetur montes hac mauris mattis malesuada, primis porttitor suscipit 
-                    volutpat lacus tempus dapibus magnis congue. Egestas magnis nullam sapien curae mauris dis lectus tortor mus turpis lacus ullamcorper, netus conubia lacinia euismod 
-                    rhoncus suscipit consequat tincidunt diam fringilla condimentum. Nascetur sed cubilia ultricies ultrices fermentum cursus morbi, lectus rhoncus odio etiam risus mattis 
-                    quisque, inceptos adipiscing platea vestibulum eu eleifend. Vitae conubia ac primis vestibulum himenaeos at potenti maximus phasellus, cubilia id montes magna etiam et 
-                    mollis tincidunt commodo sodales, malesuada vel gravida nisl auctor proin aenean lacus. Mattis nascetur dapibus curae sapien sit quam fermentum praesent ultricies, mi 
-                    tempus parturient potenti tellus dictum tincidunt ipsum, nec aenean nostra laoreet felis mus fusce ridiculus.
-                </p>
-            </section>
+                <h3>Какие еще идеи?</h3>
+                <ul className='list'>
+                    <li><span>Радио:</span> можно будет стримить кучу альбомов музыки прямо отсюда! (правда музыка будет не ваша)</li>
+                    <li><span>Просмотр фильмов:</span> тоже самое что и радио, только с картинкой : )</li>
+                    <li><span>Хранение собственных файлов:</span> можно будет использовать сервер как облако с данными, которыми можно будет управлять</li>
+                </ul>
+            </TextSection>
         </Container>
     </>)
 })

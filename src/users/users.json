@@ -1,17 +1,26 @@
 [
     {
         "name": "John",
+        "secondName": "Lomov",
         "login": "john@gmail.com",
-        "password": "1234"    
+        "password": "1234",
+        "phone": "+375441231246",
+        "userId": 1      
     },
     {
         "name": "Matvey",
+        "secondName": "Yaromin",
         "login": "Matvey2425",
-        "password": "1719po3"    
+        "password": "1719po3",
+        "phone": "+37525128946", 
+        "userId": 2         
     },
     {
         "name": "Kiryl",
+        "secondName": "Iponsky",
         "login": "say-good-bye",
-        "password": "123132"    
+        "password": "123132",
+        "phone": "+375255051246",   
+        "userId": 3      
     }
 ]

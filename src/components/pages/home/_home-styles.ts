@@ -35,3 +35,22 @@ export const MainSection = styled(SectionWithImage)`
     }
     border-bottom: none;
 `
+export const TextSection = styled.section`
+    h3 {
+        margin-top: 7rem;
+    }
+
+    .list {
+        margin-top: 3rem;
+
+        padding-left: 1.5rem;
+
+        li {
+            line-height: 4rem;
+
+            span {
+                font-family: "CavierDream-Bold";
+            }
+        }
+    }
+`

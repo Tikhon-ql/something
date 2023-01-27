@@ -8,7 +8,9 @@ export type LoginType = {
 }
 export type UserData = {
     name: string,
-    phoneNumber: string
+    secondName: string
+    phoneNumber: string,
+    userId: number
 }
 
 class Auth {
@@ -20,7 +22,9 @@ class Auth {
     }
     userData: UserData = {
         name: "",
-        phoneNumber: ""
+        secondName: "",
+        phoneNumber: "",
+        userId: 0
     }
 
     constructor() {
@@ -37,10 +41,16 @@ class Auth {
                     this.setIsAuth(true)
                     this.credentials.login = _creds.login
                     this.credentials.password = _creds.password
+
                     this.userData.name = user.name
+                    this.userData.secondName = user.secondName;
+                    this.userData.phoneNumber = user.phone;
 
                     localStorage.setItem('isAuth', "true")
+                    localStorage.setItem('authUserId', user.userId.toString())
+
                     window.location.replace('#/account')
+                    window.location.reload();
 
                     return
                 }
@@ -55,6 +65,20 @@ class Auth {
     }
     setIsAuth(_value) {
         this.isAuth = _value
+    }
+    updateInfo() {
+        this.userData.userId = Number(localStorage.getItem("authUserId"))
+
+        try {
+            let authUser = users.filter(user => user.userId == this.userData.userId)[0]
+
+            this.userData.name = authUser.name;
+            this.userData.secondName = authUser.secondName;
+            this.userData.phoneNumber = authUser.phone;
+        }
+        catch(e) {
+            console.error(e)
+        }
     }
 }
 

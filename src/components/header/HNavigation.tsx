@@ -1,14 +1,18 @@
 import {Link} from 'react-router-dom'
 import Modal from '../utilities/modal/Modal';
 import modal, { ModalType } from '../../store/modal';
+import auth from '../../store/auth';
 
 export const Links = ({type}) => {
     return <>
         <div className={`navigation-links ${type}`}>
             <Link className="navigation-link" to="/" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Главная</Link>
-            <Link className="navigation-link" to="/clocks" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Время</Link>
-            <Link className="navigation-link" to="/todos" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Список дел</Link>
-            <Link className="navigation-link" to="/account" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Аккаунт</Link>
+            {auth.isAuth && <Link className="navigation-link" to="/clocks" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Время</Link>}
+            {auth.isAuth && <Link className="navigation-link" to="/todos" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Список дел</Link>}
+            {auth.isAuth
+            ?<Link className="navigation-link" to="/account" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Аккаунт</Link>
+            :<Link className="navigation-link" to="/login" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Логин</Link>
+            }
         </div>
     </>
 }
