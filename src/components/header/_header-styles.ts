@@ -23,7 +23,7 @@ export const SiteHeader = styled.header`
             &.white {
                 &::after {
                     background-color: ${$White};
-                    opacity: .9;
+                    opacity: .75;
                     border-bottom: 2px solid ${$Black};
                 }
             }

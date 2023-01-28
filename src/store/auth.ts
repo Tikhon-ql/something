@@ -4,7 +4,10 @@ import { method } from "../api/methods"
 
 export type LoginType = {
     nickName: string,
-    password: string
+    password: string,
+    email?: string,
+    firstName?: string,
+    lastName?: string
 }
 export type UserData = {
     name: string,
@@ -28,15 +31,10 @@ class Auth {
         userId: 0
     }
 
-
-
     constructor() {
         makeAutoObservable(this)
     }
 
-    register(_creds: LoginType) {
-        modal.setErrorMessage("Данная функция пока не добавлена")
-    }
     async isUserExist(_creds: LoginType, setIsLoading: Function) {
         try {
             setIsLoading(true)
@@ -63,6 +61,18 @@ class Auth {
     }
     setIsAuth(_value) {
         this.isAuth = _value
+    }
+    async registration(_regCreds: LoginType, setIsLoading: Function) {
+        try {
+            setIsLoading(true)
+            const {accessToken, expirationDate}: AccessType = (await method.registration(_regCreds)).data;    
+        }
+        catch(e) {
+            modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
+        }
+        finally {
+            setIsLoading(false)
+        }
     }
 }
 

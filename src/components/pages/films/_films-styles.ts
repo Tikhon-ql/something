@@ -1,60 +1,86 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
-import { $Gray, $White, $breakp1200, $breakp576} from '../../../styles/uiKit';
+import { $Gray, $White, $breakp1200, $breakp767, $breakp576, $Black} from '../../../styles/uiKit';
+
+import Plus from "../../../styles/images/plus.png"
+import Minus from "../../../styles/images/minus.png"
 
 export const FilmsSection = styled.section`
-    .clocks__wrapper {
-        position: relative;
-        padding: 10rem 5rem;
-
-        background-color: ${$Gray};
-        z-index: 1;
-
-        overflow: hidden;
-        
-        z-index: 2;
-
+    .films__list {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        gap: 50px;
+        flex-direction: column;
+        align-items: center;
 
-        @media (max-width: ${$breakp1200}) {
-            flex-direction: column;
-            gap: 30px;
-        }
-        @media (max-width: ${$breakp576}) {
-            padding: 20px;
-        }
+        gap: 5rem;
 
-        
-        span {
-            font-size: 20px;
-        }
+        .film-item {
+            border-radius: 1rem;
+            overflow: hidden;
 
-        .subheadline { 
-            margin-bottom: 10px;
+            width: 100%;
 
-            @media (max-width: ${$breakp576}) {
-                font-size: 32px;
+            &.open {
+                .icon {
+                    background: center/cover url(${Minus});
+                }
+
+                .film-item__submenu {
+                    display: block;
+                }
+            }
+
+            &__head {
+                position: relative;
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 6rem;
+
+                padding: 4rem 4rem 8rem 4rem;
+
+                background-color: ${$Gray};
+
+                @media (max-width: ${$breakp767}) {
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 2rem;
+                }
+
+                .icon {
+                    content: "";
+                    position: absolute;
+
+                    bottom: 20px;
+                    right: 20px;
+
+                    width: 40px;
+                    height: 40px;
+
+                    transition: all .2s;
+
+                    background: center/cover url(${Plus});
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            &__submenu {
+                display: none;
+
+                transition: all .4s;
+
+                background: ${$Black};
+                padding: 3rem 4rem;
+
+                p {
+                    color: ${$White};
+                }
             }
         }
     }
-    .clocks__info {
-        font-size: 20px;
-        line-height: 30px;
-        font-weight: 600;
-        cursor: pointer;
-    
-        width: max-content;
 
-        &:hover {
-            text-decoration: underline;
-        }
-
-        margin: 20px auto;
-    }
-    .black-btn {
-        margin: 3rem auto 0 auto;
-    }
 `

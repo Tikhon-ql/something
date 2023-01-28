@@ -7,6 +7,8 @@ import { Container } from '../../../styles/uiKit';
 import { method } from '../../../api/methods';
 import { FilmsSection } from './_films-styles';
 
+
+
 export type Film = {
     countryName: string
     description: string
@@ -17,7 +19,7 @@ export type Film = {
 
 const Films = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)
-    const [filmsList, setFilmsList] = useState<Film[]>()
+    const [filmsList, setFilmsList] = useState<Film[]>([])
 
     useEffect(() => {
         (async () => {
@@ -25,10 +27,7 @@ const Films = () => {
                 setIsLoading(true)
                 const filmsList: Film[] = (await method.getFilms()).data;
 
-                setFilmsList(filmsList)
-
-                console.log(filmsList)
-                
+                setFilmsList(filmsList)    
             }
             catch(e) {
                 modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
@@ -39,10 +38,36 @@ const Films = () => {
         })()
     }, [])
 
+    const toggleSubmenu = (_id) => {
+        let element = document.getElementById(`${_id}`);
+        let submenuOfElement = document.getElementById(`submenu-${_id}`);
+
+        // const height = submenuOfElement.scrollHeight;
+
+        // console.log(height)
+
+        // submenuOfElement.style.height = `${height}px`
+        element.classList.toggle("open");  
+    } 
+
     return (<>
         <Container minHeight={"100vh"} className="container">
             <FilmsSection className="films">
                 <div className="films__list">
+                    {filmsList.map(film => 
+                        <div key={film.title} id={film.title} className='film-item'>
+                            <div className="film-item__head">
+                                <h2>{film.title} - {film.directorName}, ({film.year}) </h2>
+                                <p>{film.countryName}</p>
+                                <div className="icon" onClick={(e) => {
+                                    toggleSubmenu(film.title)
+                                }} />
+                            </div>
+                            <div id={"submenu-" + film.title} className="film-item__submenu">
+                                <p>{film.description}</p>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </FilmsSection>
         </Container>

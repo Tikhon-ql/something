@@ -10,6 +10,7 @@ import Login from './components/pages/login/Login';
 import Films from './components/pages/films/Films';
 import auth from './store/auth';
 import { Navigate } from 'react-router-dom';
+import Registration from './components/pages/registration/Registration';
 
 export const Main = () => {
     return <>
@@ -18,6 +19,7 @@ export const Main = () => {
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path='/login' element={<Login />} />
+                <Route path='/login:registration' element={<Registration />} />
 
                 {!auth.isAuth?<Route path='*' element={<Navigate to='/' />} />:
                     <>

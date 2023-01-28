@@ -6,7 +6,7 @@ export enum HeaderColors {
 }
 export type HeaderStyle = {
     isTransparent: boolean,
-    color: HeaderColors
+    color: HeaderColors,
 }
 
 class Header {

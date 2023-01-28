@@ -8,11 +8,13 @@ import { Container } from '../../../styles/uiKit';
 import header, { HeaderColors } from '../../../store/header';
 import { LoginSection } from './_login-styles';
 import Mount from "../../../styles/images/mount.jpg"
-
+import { useNavigate } from "react-router-dom";
 
 const Login = observer(() => {
     const [creds, setCreds] = useState<LoginType>({nickName: "", password: ""})
     const [isLoading, setIsLoading] = useState(false)
+
+    const navigation = useNavigate();
 
     useEffect(() => {
         header.setIsTransparent(true, HeaderColors.dark)
@@ -27,6 +29,7 @@ const Login = observer(() => {
             <Container>
                 <div className="login__wrapper">
                     <h2>Войдите в аккаунт</h2>
+
                     <div className='login__form'>
                         <Input placeholder="Enter login" type="text" onChange={(e) => setCreds({...creds, nickName: e.target.value})}/>
                         <Input placeholder="Enter password" type="password" onChange={(e) => setCreds({...creds, password: e.target.value})}/>
@@ -39,7 +42,7 @@ const Login = observer(() => {
                             </Button>  
                             <Button 
                                 className="black-btn"
-                                onClick={() => auth.register(creds)}>
+                                onClick={() => navigation("/login:registration")}>
                                     Зарегистрироваться 
                             </Button>  
                         </div>
