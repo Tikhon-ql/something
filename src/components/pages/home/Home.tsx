@@ -31,10 +31,6 @@ const Home = observer(() => {
         
         <TextSection className="text">
             <Container style={{position: "relative"}}>
-                <img className="q-image" src={q} alt="" />
-                <img className="q-image" src={q} alt="" />
-                <img className="q-image" src={q} alt="" />
-
                 <h3>Что Это?</h3>
                 <p className='paragraph'>
                     Сайт для взаимодействия с сервером и ресурсами на нём
@@ -53,13 +49,13 @@ const Home = observer(() => {
                 </p>
             </Container>
             
-            <div className='image'>
+            {/* <div className='image'>
                 <Container style={{position: "relative"}}>
                     <div className="image-wrapper">
                         <img src={HeadSet} alt="" />
                     </div>
                 </Container>
-            </div>
+            </div> */}
             
             <Container>
                 <h3>Какие еще идеи?</h3>

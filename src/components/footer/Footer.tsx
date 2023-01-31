@@ -14,7 +14,7 @@ const Footer = () => {
             <Container style={{padding: "2rem"}}>
                 <div className="footer__wrapper">
                     <nav className="footer__navigation">
-                        <Links type={"for-footer"}/>
+                        {/* <Links type={"for-footer"}/> */}
                         <div className="footer__social-links">
                             {/* <a href='https://www.instagram.com/k.harbacheuski/' target="_blank" className="svg-icon"><img width="32px" height="32px" src={Inst} alt="intagramm" /></a> */}
                             {/* <a href='https://vk.com/flipperralfi' target="_blank" className="svg-icon"><img width="32px" height="32px" src={Vk} alt="vkontakte" /></a> */}

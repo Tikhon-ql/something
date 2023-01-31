@@ -11,7 +11,7 @@ const Header = observer(() => {
         <SiteHeader id="header" className={`header ${headerStore.headerStyle.isTransparent?`transparent ${headerStore.headerStyle.color}`:""}`}>
             <Container className="container">
                 <div className="header__wrapper">
-                    <Link className="header__navigation-link logo" to="/"><img width="60px" src={Logo} alt="" /></Link>
+                    <Link className="navigation-link logo" to="/"><img width="60px" src={Logo} alt="" /></Link>
                     <Navigation />
                 </div>
             </Container>

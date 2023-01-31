@@ -40,16 +40,19 @@ export const SiteHeader = styled.header`
             min-height: ${$headerHeight};
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: stretch;
             justify-content: space-between;
 
             position: relative;
             z-index: 101;
+
+            .logo {  
+                align-self: center;
+            }
         }
         .header__navigation {
             display: flex;
             flex-direction: row;
-            align-items: center;
 
             .navigation-links {
                 display: flex;
@@ -66,7 +69,6 @@ export const SiteHeader = styled.header`
                     }
                 }
 
-                
                 .navigation-link {
                     text-decoration: none;
                     color: ${$Black};
@@ -77,6 +79,8 @@ export const SiteHeader = styled.header`
 
                     user-select: none;
 
+                    align-self: center;
+
                     transition: all .1s ease-in-out;
 
                     @media (min-width: ${$breakp767}) {
@@ -85,13 +89,45 @@ export const SiteHeader = styled.header`
                         }
                     }
 
-                    &.logo {
-                        position: relative;
-                        left: 0;
-                    }
-
                     @media (max-width: ${$breakp767}) {
                         color: ${$White};
+                    }
+                }
+
+                .dropdown-link {
+                    position: relative;
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    &__list {
+                        display: none;  
+                        flex-direction: column;
+                        align-items: center;
+                        row-gap: 2rem;
+
+                        position: absolute;
+                        top: ${$headerHeight};
+
+                        min-width: max-content;
+
+                        padding: 3rem;
+
+                        background-color: ${$Black};
+
+                        border-bottom-left-radius: .5rem;
+                        border-bottom-right-radius: .5rem;
+                        
+                        .navigation-link {
+                            color: ${$White};
+                        }
+                    }
+
+                    &:hover {
+                        .dropdown-link__list {
+                            display: flex;
+                        }
                     }
                 }
             }

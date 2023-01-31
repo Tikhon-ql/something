@@ -5,7 +5,29 @@ import { $Gray, $White, $breakp1200, $breakp767, $breakp576, $Black} from '../..
 import Plus from "../../../styles/images/plus.png"
 import Minus from "../../../styles/images/minus.png"
 
+
+export const HeadSection = styled.section`
+    padding-bottom: 0;
+    text-align: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    .search {
+        margin: 3rem 0;
+
+        width: 100%;
+    }
+`
+
 export const FilmsSection = styled.section`
+
     .films__list {
         display: flex;
         flex-direction: column;
@@ -38,7 +60,7 @@ export const FilmsSection = styled.section`
                 justify-content: space-between;
                 gap: 6rem;
 
-                padding: 4rem 4rem 8rem 4rem;
+                padding: 3rem 3rem 8rem 3rem;
 
                 background-color: ${$Gray};
 
@@ -48,12 +70,19 @@ export const FilmsSection = styled.section`
                     gap: 2rem;
                 }
 
+                &-name {
+                    font-size: 2rem;
+                    line-height: 3rem;
+
+                    font-weight: 600;
+                }
+
                 .icon {
                     content: "";
                     position: absolute;
 
                     bottom: 20px;
-                    right: 20px;
+                    right: 30px;
 
                     width: 40px;
                     height: 40px;
@@ -68,6 +97,23 @@ export const FilmsSection = styled.section`
                 }
             }
 
+            .film-item__add {
+                position: absolute;
+                bottom: 2rem;
+                cursor: pointer;
+
+                font-size: 15px;
+                line-height: 1;
+
+                border-radius: 3rem;
+
+                padding: 1.5rem 2rem;
+
+                @media (max-width: ${$breakp576}) {
+                    position: static;
+                }
+            }
+
             &__submenu {
                 display: none;
 
@@ -76,11 +122,17 @@ export const FilmsSection = styled.section`
                 background: ${$Black};
                 padding: 3rem 4rem;
 
+                @media (max-width: ${$breakp576}) {
+                    padding: 3rem 2rem;
+                }
+
                 p {
                     color: ${$White};
                 }
             }
         }
     }
-
+    .films__btn {
+        margin: 5rem auto 0 auto;
+    }
 `

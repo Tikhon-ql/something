@@ -1,21 +1,20 @@
 import axios from "axios";
 import { TodoType } from "../store/todo";
 import { AccessType } from "../store/auth";
-import auth from "../store/auth";
-import { Film } from "../components/pages/films/Films";
+import { Film, AddFilm } from "../components/pages/films/Films";
 
 const api = axios.create();
 
 api.interceptors.response.use(
     response => response,
     error => {
-        if (error.response.status === 401) 
+        if (error.response.status === 401)  {
+            localStorage.clear();
             window.location.href = '#/login'
-      
+            window.location.reload()
+        }
 });
 
-axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 api.defaults.headers['Authorization'] = `Bearer ${localStorage.getItem("accessToken")}`; 
 
 export const method = {
@@ -30,5 +29,11 @@ export const method = {
     },
     getFilms() {
         return api.get<Film[]>(`http://api.films.peabody28.com/Film`)
-    }
+    },
+    getUserFilms() {
+        return api.get<Film[]>(`http://api.films.peabody28.com/User/Film`)
+    },
+    addFilm(_data: AddFilm) {
+        return api.post(`http://api.films.peabody28.com/User/Film`, {..._data})
+    },
 }
