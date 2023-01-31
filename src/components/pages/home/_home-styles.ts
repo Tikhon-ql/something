@@ -9,7 +9,6 @@ export const MainSection = styled(SectionWithImage)`
 
     &::after {
         background: ${`left/cover url(${img}) ${$Gray} no-repeat`};
-        filter: none;
     }
 
     border-bottom: none;

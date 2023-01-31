@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
-import { $Gray, $White, $breakp576, $breakp767, $Black} from '../../../styles/uiKit';
+import { $Gray, $White, $breakp767 } from '../../../styles/uiKit';
 import { SectionWithImage } from '../../../styles/uiKit';
-
-import Phones from "../../../styles/images/contacts/phones.jpg"
 import Waa from "../../../styles/images/wai.jpg"
 
 export const MainSection = styled(SectionWithImage)`
