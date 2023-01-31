@@ -30,7 +30,7 @@ const Home = observer(() => {
         
         <TextSection className="text">
             <Container style={{position: "relative"}}>
-                <h3>Что Это?</h3>
+                <h3>Что это за сайт?</h3>
                 <p className='paragraph'>
                     Где хранить список просмотренных фильмов?
                     <br />

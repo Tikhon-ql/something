@@ -7,7 +7,6 @@ import auth, { LoginType } from '../../../store/auth';
 import { Container } from '../../../styles/uiKit';
 import header, { HeaderColors } from '../../../store/header';
 import { RegistrationSection } from "./_registration-styles";
-import Mount from "../../../styles/images/mount.jpg"
 import { $White } from '../../../styles/uiKit';
 
 const Registration = observer(() => {
@@ -23,7 +22,7 @@ const Registration = observer(() => {
     }, [])
 
     return (<>
-            <RegistrationSection imgUrl={Mount} className="register">
+            <RegistrationSection className="register">
                 <Container>
                     <div className="register__wrapper">
                         <h2 style={{color: `${$White}`}}>Регистрация</h2>

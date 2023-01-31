@@ -91,6 +91,11 @@ export const SiteHeader = styled.header`
 
                     @media (max-width: ${$breakp991}) {
                         color: ${$White};
+
+                        .btn {
+                            background-color: ${$White};
+                            color: ${$Black};
+                        }
                     }
                 }
 

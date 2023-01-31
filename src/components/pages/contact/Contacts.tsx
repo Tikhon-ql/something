@@ -34,7 +34,7 @@ const Contacts = observer(() => {
                     </ContactSection>
 
                     <ContactSection>
-                        <h2>Maxim Harbacheuski</h2>
+                        <h2>Maksim Harbacheuski</h2>
                         <p>Backend</p>
                         <div className="social-links">
                             <a href='https://t.me/lastuser42' target="_blank" className="svg-icon"><p>Telegram:</p> <img width="32px" height="32px" src={Tg} alt="telegramm" /></a>

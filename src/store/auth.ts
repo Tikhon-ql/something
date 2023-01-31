@@ -35,10 +35,10 @@ class Auth {
         makeAutoObservable(this)
     }
 
-    async isUserExist(_creds: LoginType, setIsLoading: Function) {
+    async login(_creds: LoginType, setIsLoading: Function) {
         try {
             setIsLoading(true)
-            const {accessToken, expirationDate}: AccessType = (await method.login(_creds)).data;
+            const {accessToken}: AccessType = (await method.login(_creds)).data;
 
             if(accessToken) {
                 this.setIsAuth(true)
@@ -46,7 +46,8 @@ class Auth {
                 localStorage.setItem('isAuth', "true")
                 localStorage.setItem('accessToken', accessToken)
     
-                window.location.reload();
+                window.location.replace("#/")
+                window.location.reload()
             }
             else throw 1;
             
@@ -61,16 +62,32 @@ class Auth {
     setIsAuth(_value) {
         this.isAuth = _value
     }
+
     async registration(_regCreds: LoginType, setIsLoading: Function) {
         try {
             setIsLoading(true)
-            const {accessToken, expirationDate}: AccessType = (await method.registration(_regCreds)).data;    
+            await method.registration(_regCreds);    
+
+            await this.login(_regCreds, setIsLoading);
+
+            window.location.replace("#/")
+            window.location.reload()
         }
         catch(e) {
-            modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
+            modal.setErrorMessage("Не удалось зарегистрироваться")
         }
         finally {
             setIsLoading(false)
+        }
+    }
+    exit() {
+        try {
+            localStorage.clear()
+            window.location.replace("#/")
+            window.location.reload()
+        }
+        catch(e) {
+            modal.setErrorMessage("Что-то пошло не так")
         }
     }
 }

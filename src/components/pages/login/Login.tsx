@@ -37,7 +37,7 @@ const Login = observer(() => {
                         <div className="login__buttons">
                             <Button 
                                 className="black-btn"
-                                onClick={() => auth.isUserExist(creds, setIsLoading)}>
+                                onClick={() => auth.login(creds, setIsLoading)}>
                                     Войти
                             </Button>  
                             <Button 

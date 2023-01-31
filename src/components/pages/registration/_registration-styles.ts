@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import '../../../styles/uiKit'
 import { SectionWithImage } from '../../../styles/uiKit';
 import { $Gray} from '../../../styles/uiKit';
-import img from "../../../styles/images/login/wall.jpg"
+import img from "../../../styles/images/login/svet.jpg"
 
 export const RegistrationSection = styled(SectionWithImage)`
     border-bottom: 0;
 
     &::after {
-        background: ${`left/cover url(${img}) ${$Gray} no-repeat`};
+        background: ${`center/cover url(${img}) ${$Gray} no-repeat`};
         opacity: 0.8;
     }
 

@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom'
 import Modal from '../utilities/modal/Modal';
 import modal, { ModalType } from '../../store/modal';
 import auth from '../../store/auth';
+import { Button } from '../../styles/uiKit';
 
 export const Links = ({type}) => {
     return <>
@@ -12,7 +13,11 @@ export const Links = ({type}) => {
                 <Link className="navigation-link" to="/films/my-collection/" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Моя подборка</Link>
             </>}
             <Link className="navigation-link" to="/contacts" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Контакты</Link>
-            {!auth.isAuth &&<Link className="navigation-link" to="/login" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>Логин</Link>}
+            {!auth.isAuth &&
+            <Link className="navigation-link" to="/login" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>
+                <Button className="btn" style={{padding: "1rem 3rem", fontSize: "15px", borderRadius: "3rem"}}>Войти</Button>
+            </Link>}
+            {auth.isAuth && <a className="navigation-link"><Button className="btn" style={{padding: "1rem 3rem", fontSize: "15px", borderRadius: "3rem"}} onClick={() => auth.isAuth && auth.exit()}>Выйти</Button></a>}
         </div>
     </>
 }
