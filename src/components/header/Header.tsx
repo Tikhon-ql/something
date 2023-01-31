@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 import { observer } from 'mobx-react-lite';
-import Logo from '../../styles/images/server.svg'
+import Logo from '../../styles/images/camera.png'
 import Navigation from './HNavigation';
 import { Container } from '../../styles/uiKit';
 import headerStore from '../../store/header';

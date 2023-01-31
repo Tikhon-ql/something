@@ -46,7 +46,6 @@ class Auth {
                 localStorage.setItem('isAuth', "true")
                 localStorage.setItem('accessToken', accessToken)
     
-                await window.location.replace('#/account')
                 window.location.reload();
             }
             else throw 1;

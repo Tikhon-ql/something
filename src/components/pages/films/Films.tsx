@@ -6,6 +6,7 @@ import modal, { ModalType } from '../../../store/modal';
 import { Container } from '../../../styles/uiKit';
 import { method } from '../../../api/methods';
 import { FilmsSection, HeadSection } from './_films-styles';
+import SingleFilm from './SingleFilm';
 
 export type Film = {
     countryName: string
@@ -14,6 +15,17 @@ export type Film = {
     id: string
     title: string
     year: number
+    ratings: [
+        {
+          ratingTypeName: string,
+          value: number
+        }
+    ]
+}
+export type Films = {
+    films: Film[],
+    sectionName?: any
+
 }
 export type AddFilm = {
     filmId: string
@@ -24,7 +36,7 @@ export const toggleSubmenu = (_id) => {
     element.classList.toggle("open");  
 } 
 
-export const renderFilmsCondition = (film, index, searchState, visibleFilmsCount) => {
+export const renderFilmsCondition = (film: Film, index, searchState, visibleFilmsCount) => {
     if(searchState?.length > 0) {
         if(film.title.includes(searchState) || film.directorName.includes(searchState) || film.year.toString().includes(searchState))
             return true
@@ -37,7 +49,7 @@ export const renderFilmsCondition = (film, index, searchState, visibleFilmsCount
 const Films = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)
     const [filmsList, setFilmsList] = useState<Film[]>([])
-    const [visibleFilmsCount, setVisibleFilmsCount] = useState<number>(20)
+    const [visibleFilmsCount, setVisibleFilmsCount] = useState<number>(8)
     const [searchState, setSearchState] = useState<string>()
 
     useEffect(() => {
@@ -57,47 +69,21 @@ const Films = () => {
         })()
     }, [])
 
-    const addFilm = (data: AddFilm) => {
-        (async () => {
-            try {
-                setIsLoading(true)
-                const response = (await method.addFilm({filmId: data.filmId})).data;   
-            }
-            catch(e) {
-                modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
-            }
-            finally {
-                setIsLoading(false)
-            }
-        })()
-    }
  
     return (<>
         <Container minHeight={"100vh"} className="container">
             <HeadSection className="head">
-                <h2>Фильмы которые ты когда либо смотрел</h2>
+                <h2>Все фильмы</h2>
 
                 <div className="search">
-                    <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название фильма" />
+                    <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />
                 </div>
             </HeadSection>
             <FilmsSection className="films">
                 <div className="films__list">
-                    {filmsList.map((film, index) => 
+                    {filmsList.map((film: Film, index) => 
                         renderFilmsCondition(film, index, searchState, visibleFilmsCount) &&
-                        <div key={film.id} id={film.id} className='film-item'>
-                            <div className="film-item__head">
-                                <p className='film-item__head-name'>{film.title} - {film.directorName}, ({film.year})</p>
-                                <p>{film.countryName}</p>
-                                <div className="icon" onClick={(e) => {
-                                    toggleSubmenu(film.id)
-                                }} />
-                                <Button className='film-item__add' onClick={() => addFilm({filmId: film.id})}>Добавить к себе</Button>
-                            </div>
-                            <div id={"submenu-" + film.id} className="film-item__submenu">
-                                <p>{film.description}</p>
-                            </div>
-                        </div>
+                        <SingleFilm addFilmBtn key={film.id} film={film} />
                     )}
                 </div>
                 {filmsList?.length > 0 && <Button onClick={() => setVisibleFilmsCount(visibleFilmsCount+5)} className='films__btn showMore-btn'>Показать больше</Button>}

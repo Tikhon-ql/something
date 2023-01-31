@@ -1,7 +1,7 @@
 import axios from "axios";
 import { TodoType } from "../store/todo";
 import { AccessType } from "../store/auth";
-import { Film, AddFilm } from "../components/pages/films/Films";
+import { Films, Film, AddFilm } from "../components/pages/films/Films";
 
 const api = axios.create();
 
@@ -31,7 +31,7 @@ export const method = {
         return api.get<Film[]>(`http://api.films.peabody28.com/Film`)
     },
     getUserFilms() {
-        return api.get<Film[]>(`http://api.films.peabody28.com/User/Film`)
+        return api.get<Films>(`http://api.films.peabody28.com/User/Film`)
     },
     addFilm(_data: AddFilm) {
         return api.post(`http://api.films.peabody28.com/User/Film`, {..._data})

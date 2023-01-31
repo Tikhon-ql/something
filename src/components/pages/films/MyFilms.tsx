@@ -6,7 +6,8 @@ import modal, { ModalType } from '../../../store/modal';
 import { Container } from '../../../styles/uiKit';
 import { method } from '../../../api/methods';
 import { FilmsSection, HeadSection } from './_films-styles';
-import { Film, toggleSubmenu, renderFilmsCondition } from './Films';
+import { Film, renderFilmsCondition } from './Films';
+import SingleFilm from './SingleFilm';
 
 const MyFilms = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false)
@@ -18,9 +19,9 @@ const MyFilms = () => {
         (async () => {
             try {
                 setIsLoading(true)
-                const filmsList: Film[] = (await method.getUserFilms()).data;
-
-                setFilmsList(filmsList)    
+                const films = (await method.getUserFilms()).data;
+                console.log(films)
+                setFilmsList(films?.films)    
             }
             catch(e) {
                 modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
@@ -37,25 +38,14 @@ const MyFilms = () => {
                 <h2>Мои фильмы</h2>
 
                 <div className="search">
-                    <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название фильма" />
+                    <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />
                 </div>
             </HeadSection>
             <FilmsSection className="films">
                 <div className="films__list">
-                    {filmsList.map((film, index) => 
+                    {filmsList.map((film: Film, index) => 
                         renderFilmsCondition(film, index, searchState, visibleFilmsCount) &&
-                        <div key={film.id} id={film.id} className='film-item'>
-                            <div className="film-item__head">
-                                <p className='film-item__head-name'>{film.title} - {film.directorName}, ({film.year})</p>
-                                <p>{film.countryName}</p>
-                                <div className="icon" onClick={(e) => {
-                                    toggleSubmenu(film.id)
-                                }} />
-                            </div>
-                            <div id={"submenu-" + film.id} className="film-item__submenu">
-                                <p>{film.description}</p>
-                            </div>
-                        </div>
+                        <SingleFilm film={film} />
                     )}
                 </div>
                 {filmsList?.length > 0 && <Button onClick={() => setVisibleFilmsCount(visibleFilmsCount+5)} className='films__btn showMore-btn'>Показать больше</Button>}

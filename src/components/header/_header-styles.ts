@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { $Gray, $BorderColor, $White, $breakp767, $Black, $headerHeight} from '../../styles/uiKit';
+import { $Gray, $BorderColor, $White, $breakp767,$breakp991, $Black, $headerHeight} from '../../styles/uiKit';
 
 export const SiteHeader = styled.header`
         position: sticky;
@@ -59,7 +59,7 @@ export const SiteHeader = styled.header`
                 flex-direction: row;
                 gap: 4rem;
 
-                @media (max-width: ${$breakp767}) {
+                @media (max-width: ${$breakp991}) {
                     &.desktop {
                         display: none;
                     }
@@ -89,7 +89,7 @@ export const SiteHeader = styled.header`
                         }
                     }
 
-                    @media (max-width: ${$breakp767}) {
+                    @media (max-width: ${$breakp991}) {
                         color: ${$White};
                     }
                 }
@@ -136,9 +136,11 @@ export const SiteHeader = styled.header`
 
                 user-select: none;
 
+                align-self: center;
+
                 padding: 1rem 0;
 
-                @media (max-width: ${$breakp767}) {
+                @media (max-width: ${$breakp991}) {
                     display: block;
                 }
 

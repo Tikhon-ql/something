@@ -27,7 +27,8 @@ export const HeadSection = styled.section`
 `
 
 export const FilmsSection = styled.section`
-
+    padding-top: 2rem;
+    
     .films__list {
         display: flex;
         flex-direction: column;
@@ -105,7 +106,7 @@ export const FilmsSection = styled.section`
                 font-size: 15px;
                 line-height: 1;
 
-                border-radius: 3rem;
+                border-radius: 1rem;
 
                 padding: 1.5rem 2rem;
 
