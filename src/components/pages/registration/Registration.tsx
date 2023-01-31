@@ -25,23 +25,25 @@ const Registration = observer(() => {
             <RegistrationSection className="register">
                 <Container>
                     <div className="register__wrapper">
-                        <h2 style={{color: `${$White}`}}>Регистрация</h2>
-                        <div className='register__form'>
-                            <Input style={{width: "40rem"}} placeholder="Enter firstname" type="text" onChange={(e) => setCreds({...creds, firstName: e.target.value})}/>
-                            <Input style={{width: "40rem"}} placeholder="Enter lastname" type="text" onChange={(e) => setCreds({...creds, lastName: e.target.value})}/>
-                            <Input style={{width: "40rem"}} placeholder="Enter login" type="text" onChange={(e) => setCreds({...creds, nickName: e.target.value})}/>
-                            <Input style={{width: "40rem"}} placeholder="Enter password" type="password" onChange={(e) => setCreds({...creds, password: e.target.value})}/>
-                            <Input style={{width: "40rem"}} placeholder="Enter email" type="email" onChange={(e) => setCreds({...creds, email: e.target.value})}/>
+                        <div className="register__inner">
+                            <h1 style={{color: `${$White}`}}>Регистрация</h1>
+                            <div className='register__form'>
+                                <Input style={{width: "40rem"}} placeholder="Enter firstname" type="text" onChange={(e) => setCreds({...creds, firstName: e.target.value})}/>
+                                <Input style={{width: "40rem"}} placeholder="Enter lastname" type="text" onChange={(e) => setCreds({...creds, lastName: e.target.value})}/>
+                                <Input style={{width: "40rem"}} placeholder="Enter login" type="text" onChange={(e) => setCreds({...creds, nickName: e.target.value})}/>
+                                <Input style={{width: "40rem"}} placeholder="Enter password" type="password" onChange={(e) => setCreds({...creds, password: e.target.value})}/>
+                                <Input style={{width: "40rem"}} placeholder="Enter email" type="email" onChange={(e) => setCreds({...creds, email: e.target.value})}/>
 
-                            <Button 
-                                className="black-btn"
-                                onClick={() => {
-                                    auth.registration(creds, setIsLoading);
-                                }}>
-                                    Зарегистрироваться 
-                            </Button>  
+                                <Button 
+                                    className="black-btn"
+                                    onClick={() => {
+                                        auth.registration(creds, setIsLoading);
+                                    }}>
+                                        Зарегистрироваться 
+                                </Button>  
 
-                            {!auth.isAuth && <p style={{color: "#c30303"}}>{modal.modals.error.message}</p>}
+                                {!auth.isAuth && <p style={{color: "#c30303"}}>{modal.modals.error.message}</p>}
+                            </div>
                         </div>
                     </div>
                 </Container>

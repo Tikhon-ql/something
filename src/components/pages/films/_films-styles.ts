@@ -30,7 +30,6 @@ export const Background = styled(SectionWithImage)`
         &::after {
             background: ${`center/cover url(${img2}) ${$Gray} no-repeat`};
             opacity: 0.8;
-            filter: blur(1px);
     
             position: fixed;
         }
@@ -40,9 +39,11 @@ export const HeadSection = styled.section`
     padding-bottom: 0;
     text-align: center;
 
-    h2 {
+    h1 {
         text-align: center;
-        color: ${$White}
+        color: ${$White};
+
+        margin: 3rem 0;
     }
 
     display: flex;
@@ -72,6 +73,11 @@ export const FilmsSection = styled.section`
             overflow: hidden;
 
             width: 100%;
+            transition: all .15s;
+
+            &:hover {
+                transform: scale(1.01);
+            }
 
             &.open {
                 .icon {

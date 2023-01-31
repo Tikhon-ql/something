@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
 import { SectionWithImage } from '../../../styles/uiKit';
-import { $Gray} from '../../../styles/uiKit';
+import { $Gray, $breakp576, $breakp991, $breakp767} from '../../../styles/uiKit';
 import img from "../../../styles/images/login/blue.jpg"
 
 export const RegistrationSection = styled(SectionWithImage)`
@@ -10,7 +10,12 @@ export const RegistrationSection = styled(SectionWithImage)`
     &::after {
         background: ${`center/cover url(${img}) ${$Gray} no-repeat`};
         opacity: 0.9;
-        filter: blur(1px);
+        filter: none;
+    }
+
+    h1 {
+        margin-bottom: 4rem;
+        text-align: center;
     }
 
     .register__buttons {
@@ -24,6 +29,19 @@ export const RegistrationSection = styled(SectionWithImage)`
 
         .black-btn {
             min-width: 45rem;
+        }
+    }
+    .register__inner {
+        background: #00000059;
+        padding: 10rem 15rem;
+        border-radius: 2rem;
+
+        @media (max-width: ${$breakp991}) {
+            padding: 10rem;
+        }
+        @media (max-width: ${$breakp767}) {
+            padding: 0;
+            background: none;
         }
     }
     .register__wrapper {

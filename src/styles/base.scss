@@ -55,10 +55,8 @@ html {
 	}
 	
 	::-webkit-scrollbar-thumb {
-		background-color: $DeepGray;
-		border: 1px solid $BorderColor;
+		background-color: $Black;
 	}
-
 }
 
 #root {
@@ -67,12 +65,9 @@ html {
 
 h1 {
 	font-weight: 700;
-	font-size: 60px;
+	font-size: 50px;
 	line-height: 70px;
 
-	@media (max-width: $breakp767) {
-		font-size: 50px;
-	}
 	@media (max-width: $breakp450) {
 		font-size: 35px;
 		line-height: 40px;
@@ -113,6 +108,11 @@ li,
 span {
 	font-size: 2rem;
 	line-height: 3rem;
+
+	@media (max-width: $breakp576) {
+		font-size: 1.5rem;
+		line-height: 2.5rem;
+	}
 }
 
 p,

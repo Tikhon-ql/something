@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import { observer } from 'mobx-react-lite';
-import Logo from '../../styles/images/camera.png'
-import LogoW from '../../styles/images/camera-white.png'
+import Logo from '../../styles/images/camera.svg'
+import LogoW from '../../styles/images/camera-white.svg'
 import Navigation from './HNavigation';
 import { Container } from '../../styles/uiKit';
 import headerStore, { HeaderColors } from '../../store/header';

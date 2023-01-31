@@ -21,7 +21,7 @@ const Contacts = observer(() => {
     return (<>
         <MainSection>
             <Container>
-                <h2 className='headline'>Контакты</h2>
+                <h1 className='headline'>Контакты</h1>
                 <div className="wrapper">
                     <ContactSection>
                         <h2>Kiryl Harbacheuski</h2>

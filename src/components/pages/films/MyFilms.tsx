@@ -45,7 +45,7 @@ const MyFilms = () => {
         <Background className="myFilms">
             <Container minHeight={"100vh"} className="container">
                 <HeadSection className="head">
-                    <h2>Мои фильмы</h2>
+                    <h1>Мои фильмы</h1>
 
                     <div className="search">
                         <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />

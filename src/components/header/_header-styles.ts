@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { $Gray, $BorderColor, $White, $breakp767,$breakp991, $Black, $headerHeight} from '../../styles/uiKit';
+import { $Gray, $BorderColor, $White, $breakp767,$breakp991, $Black, $headerHeight, $transition} from '../../styles/uiKit';
 
 export const SiteHeader = styled.header`
         position: sticky;
@@ -56,6 +56,12 @@ export const SiteHeader = styled.header`
 
             .logo {  
                 align-self: center;
+
+                transition: ${$transition};
+
+                &:hover {
+                    transform: scale(1.05) rotate(10deg);
+                }
             }
         }
         .header__navigation {

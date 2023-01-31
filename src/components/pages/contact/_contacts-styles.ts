@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
-import { $Gray, $White, $breakp767 } from '../../../styles/uiKit';
+import { $Gray, $White, $breakp767, $transition } from '../../../styles/uiKit';
 import { SectionWithImage } from '../../../styles/uiKit';
 import Waa from "../../../styles/images/wai.jpg"
 
@@ -53,11 +53,23 @@ export const ContactSection = styled.section`
         color: ${$White}
     }
 
+    transition: all .2s;
+
+    &:hover {
+        transform: scale(1.02);
+
+        &::after {
+            background-color: ${$White};
+            opacity: .3;
+        }
+    }
+
     &::after {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
+        transition: ${$transition};
 
         width: 100%;
         height: 100%;
