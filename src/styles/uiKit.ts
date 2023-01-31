@@ -12,6 +12,7 @@ export const $DeepGray = "#ececec";
 export const $BorderColor = "#666666";
 export const $Black = "#000000";
 export const $White = "#ffffff";
+export const $TransparentWhite = "#ffffffeb"
 
 export const $transition = "all .2s ease-in";
 export const $headerHeight = "100px";
@@ -31,6 +32,8 @@ export const Button = styled.a`
 
     width: max-content;
     padding: 2rem 4rem;
+
+    border-radius: 4rem;
 
     transition: all 0.3s ease;
 
@@ -55,6 +58,9 @@ export const Input = styled.input`
     height: 5rem;
     width: 30rem;
 
+    border-radius: 4rem;
+    padding: 0 2rem;
+
     font-size: 2rem;
 
     @media (max-width: 576px) {
@@ -64,7 +70,7 @@ export const Input = styled.input`
     }
 
     &:focus {
-        border: 2px solid #79CAE8;
+        transform: scale(1.05);
         outline: none;
     }
 `

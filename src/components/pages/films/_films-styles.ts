@@ -1,17 +1,48 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
-import { $Gray, $White, $breakp1200, $breakp767, $breakp576, $Black} from '../../../styles/uiKit';
+import { 
+    $Gray, 
+    $White, 
+    $TransparentWhite, 
+    $breakp767, 
+    $breakp576, 
+    $Black, 
+    SectionWithImage
+} from '../../../styles/uiKit';
 
 import Plus from "../../../styles/images/plus.png"
 import Minus from "../../../styles/images/minus.png"
+import img from "../../../styles/images/cold.jpg"
+import img2 from "../../../styles/images/kraska.jpg"
 
+export const Background = styled(SectionWithImage)`
+    border-bottom: none;
 
+    &::after {
+        background: ${`center/cover url(${img}) ${$Gray} no-repeat`};
+        opacity: 0.85;
+        filter: blur(1px);
+
+        position: fixed;
+    }
+
+    &.myFilms {
+        &::after {
+            background: ${`center/cover url(${img2}) ${$Gray} no-repeat`};
+            opacity: 0.8;
+            filter: blur(1px);
+    
+            position: fixed;
+        }
+    }
+`
 export const HeadSection = styled.section`
     padding-bottom: 0;
     text-align: center;
 
     h2 {
         text-align: center;
+        color: ${$White}
     }
 
     display: flex;
@@ -63,7 +94,7 @@ export const FilmsSection = styled.section`
 
                 padding: 3rem 3rem 8rem 3rem;
 
-                background-color: ${$Gray};
+                background-color: ${$TransparentWhite};
 
                 @media (max-width: ${$breakp767}) {
                     flex-direction: column;

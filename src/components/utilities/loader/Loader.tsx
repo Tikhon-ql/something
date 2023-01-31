@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 const Ldr = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     background-color: #fff;
     z-index: 200;
-    opacity: 0.7;
+    opacity: 0.8;
 
     display: flex;
     align-items: center;

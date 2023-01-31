@@ -7,7 +7,6 @@ import auth, { LoginType } from '../../../store/auth';
 import { Container } from '../../../styles/uiKit';
 import header, { HeaderColors } from '../../../store/header';
 import { LoginSection } from './_login-styles';
-import Mount from "../../../styles/images/mount.jpg"
 import { useNavigate } from "react-router-dom";
 
 const Login = observer(() => {
@@ -17,15 +16,15 @@ const Login = observer(() => {
     const navigation = useNavigate();
 
     useEffect(() => {
-        header.setIsTransparent(true, HeaderColors.dark)
+        header.setIsTransparent({isTransparent: true, color: HeaderColors.dark, textColor: HeaderColors.white})
     
         return () => {
-            header.setIsTransparent(false)
+            header.setIsTransparent({isTransparent: false})
         };
     }, [])
 
     return (<>
-        <LoginSection imgUrl={Mount} className="login">
+        <LoginSection className="login">
             <Container>
                 <div className="login__wrapper">
                     <h2>Войдите в аккаунт</h2>

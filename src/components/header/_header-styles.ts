@@ -23,7 +23,7 @@ export const SiteHeader = styled.header`
             &.white {
                 &::after {
                     background-color: ${$White};
-                    opacity: .75;
+                    opacity: .45;
                     border-bottom: 2px solid ${$Black};
                 }
             }
@@ -34,6 +34,14 @@ export const SiteHeader = styled.header`
                     opacity: .3;
                     border-bottom: 2px solid ${$Black};
                 }
+            }
+            &.text-white {
+                .header__navigation {
+                    .navigation-link {
+                        color: ${$White};
+                    }
+                }
+                
             }
         }
         .header__wrapper {

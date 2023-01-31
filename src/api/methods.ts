@@ -1,6 +1,6 @@
 import axios from "axios";
 import { TodoType } from "../store/todo";
-import { AccessType } from "../store/auth";
+import auth, { AccessType } from "../store/auth";
 import { Films, Film, AddFilm } from "../components/pages/films/Films";
 
 const api = axios.create();
@@ -9,9 +9,7 @@ api.interceptors.response.use(
     response => response,
     error => {
         if (error.response.status === 401)  {
-            localStorage.clear();
-            window.location.href = '#/login'
-            window.location.reload()
+            auth.exit()
         }
 });
 

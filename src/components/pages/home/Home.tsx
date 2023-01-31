@@ -3,16 +3,18 @@ import { useEffect } from 'react';
 import header, { HeaderColors } from '../../../store/header';
 import { Container, Button } from '../../../styles/uiKit';
 import { MainSection, TextSection } from './_home-styles';
-import { Navigate } from 'react-router-dom';
+import modal, { ModalType } from '../../../store/modal';
+import auth from '../../../store/auth';
+import { Link } from 'react-router-dom';
 
 
 const Home = observer(() => {
 
     useEffect(() => {
-        header.setIsTransparent(true, HeaderColors.white)
+        header.setIsTransparent({isTransparent: true, color: HeaderColors.white})
 
         return () => {
-            header.setIsTransparent(false)
+            header.setIsTransparent({isTransparent: false})
         };
     }, [])
 
@@ -39,6 +41,23 @@ const Home = observer(() => {
                     Заметки в телефоне он пробовал, это не совсем удобно: нет поиска, фильмы там могу повторяться, да и вообще. Кроме названия фильма хочется хранить свою краткую рецензию на него,
                     оценку от 0 до 10 в удобном читабельном виде. С возможностью добавить или найти забытый фильм.  
                 </p>
+                <div className="links">
+                    {auth.isAuth && <>
+                        <Link className="link" to="/films/" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>
+                            <Button className="btn" style={{padding: "1rem 3rem", fontSize: "15px", borderRadius: "3rem"}}>Все фильмы</Button>
+                        </Link>
+                        <Link className="link" to="/films/my-collection/" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>
+                            <Button className="btn" style={{padding: "1rem 3rem", fontSize: "15px", borderRadius: "3rem"}}>Моя подборка</Button>
+                        </Link>
+                    </>}
+                    <Link className="link" to="/contacts" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>
+                        <Button className="btn" style={{padding: "1rem 3rem", fontSize: "15px", borderRadius: "3rem"}}>Контакты</Button>
+                    </Link>
+                    {!auth.isAuth &&
+                    <Link className="link" to="/login" onClick={() => modal.toggle(false, ModalType.mobileMenu)}>
+                        <Button className="btn" style={{padding: "1rem 3rem", fontSize: "15px", borderRadius: "3rem"}}>Логин</Button>
+                    </Link>}
+                </div>
             </Container>
         </TextSection>
     </>)

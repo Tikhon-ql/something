@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import '../../../styles/uiKit'
-import { SectionWithImage } from '../../../styles/uiKit';
+import { $White, SectionWithImage } from '../../../styles/uiKit';
 import { $Gray} from '../../../styles/uiKit';
-import img from "../../../styles/images/mount.jpg"
+import img from "../../../styles/images/login/wao.jpg"
 
 export const LoginSection = styled(SectionWithImage)`
     border-bottom: 0;
 
     &::after {
-        background: ${`left/cover url(${img}) ${$Gray} no-repeat`};
+        background: ${`center/cover url(${img}) ${$Gray} no-repeat`};
+        opacity: 0.9;
+        filter: blur(1px);
     }
 
     .login__buttons {
@@ -29,6 +31,10 @@ export const LoginSection = styled(SectionWithImage)`
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        h2 {
+            color: ${$White};
+        }
     }
     .login__form {
         width: 100%;

@@ -2,34 +2,14 @@ import styled from 'styled-components';
 import '../../../styles/uiKit'
 import { $Black, SectionWithImage } from '../../../styles/uiKit';
 import { $Gray, $White, $breakp767} from '../../../styles/uiKit';
-import img from "../../../styles/images/mirors.jpg"
+import img from "../../../styles/images/redd.jpg"
 
 export const MainSection = styled(SectionWithImage)`
     width: 100%;
 
-    border-bottom: 0;
-
     &::after {
         background: ${`left/cover url(${img}) ${$Gray} no-repeat`};
         filter: none;
-
-        @media (max-width: ${$breakp767}) {
-            background-position: center;
-            opacity: 0.2;
-        }
-    }
-
-    &::before {
-        content: "";
-        position: absolute;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 100%;
-
-        background: linear-gradient(to bottom, transparent 0%, transparent 60%, ${$White} 100%);
     }
 
     border-bottom: none;
@@ -37,32 +17,11 @@ export const MainSection = styled(SectionWithImage)`
 export const TextSection = styled.section`
     overflow: hidden;
 
+    background-color: #ddacc7;
+    
+
     h3 {
         margin-top: 7rem;
-    }
-
-    .q-image {
-        width: 80px;
-        height: 250px;
-        object-fit: cover;
-
-        position: absolute;
-
-        &:nth-of-type(1) {
-            top: -120px;
-            right: -80px;
-            transform: rotate(347deg);
-        }
-        &:nth-of-type(2) {
-            top: 320px;
-            right: -280px;
-            transform: rotate(25deg);
-        }
-        &:nth-of-type(3) {
-            right: -110px;
-            transform: rotate(331deg);
-            bottom: -700px;
-        }
     }
 
     .list {
@@ -81,20 +40,6 @@ export const TextSection = styled.section`
 
     .image {
         position: relative;
-
-        // &::before {
-        //     content: "";
-        //     position: absolute;
-
-        //     top: 0;
-        //     left: 0;
-
-        //     width: 100%;
-        //     height: 100%;
-
-        //     background: linear-gradient(85deg, transparent 0%, transparent 60%, white 100%);
-        //     z-index: 2;
-        // }
 
         &-wrapper {
             height: 44rem;
@@ -120,6 +65,18 @@ export const TextSection = styled.section`
                 width: 100%;
                 height: 100%;
             }
+        }
+    }
+    .links {
+        margin-top: 8rem;
+
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        .link {
+            text-decoration: none;
         }
     }
 `

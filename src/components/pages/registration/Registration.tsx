@@ -14,10 +14,10 @@ const Registration = observer(() => {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        header.setIsTransparent(true, HeaderColors.white)
+        header.setIsTransparent({isTransparent: true, color: HeaderColors.dark, textColor: HeaderColors.white})
     
         return () => {
-            header.setIsTransparent(false)
+            header.setIsTransparent({isTransparent: false})
         };
     }, [])
 

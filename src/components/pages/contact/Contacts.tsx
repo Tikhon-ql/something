@@ -11,10 +11,10 @@ import Linkedin from "../../../styles/images/social-icons/linkdn.svg"
 const Contacts = observer(() => {
 
     useEffect(() => {
-        header.setIsTransparent(true, HeaderColors.dark)
+        header.setIsTransparent({isTransparent: true, color: HeaderColors.white})
     
         return () => {
-            header.setIsTransparent(false)
+            header.setIsTransparent({isTransparent: false})
         };
     }, [])
 

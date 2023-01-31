@@ -5,8 +5,9 @@ import { Button, Input } from '../../../styles/uiKit';
 import modal, { ModalType } from '../../../store/modal';
 import { Container } from '../../../styles/uiKit';
 import { method } from '../../../api/methods';
-import { FilmsSection, HeadSection } from './_films-styles';
+import { FilmsSection, HeadSection, Background } from './_films-styles';
 import SingleFilm from './SingleFilm';
+import header, { HeaderColors } from '../../../store/header';
 
 export type Film = {
     countryName: string
@@ -53,6 +54,14 @@ const Films = () => {
     const [searchState, setSearchState] = useState<string>()
 
     useEffect(() => {
+        header.setIsTransparent({isTransparent: true, color: HeaderColors.dark, textColor: HeaderColors.white})
+    
+        return () => {
+            header.setIsTransparent({isTransparent: false})
+        };
+    }, [])
+
+    useEffect(() => {
         (async () => {
             try {
                 setIsLoading(true)
@@ -71,31 +80,33 @@ const Films = () => {
 
  
     return (<>
-        <Container minHeight={"100vh"} className="container">
-            <HeadSection className="head">
-                <h2>Все фильмы</h2>
+        <Background className="background">
+            <Container minHeight={"100vh"} className="container">
+                <HeadSection className="head">
+                    <h2>Все фильмы</h2>
 
-                <div className="search">
-                    <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />
-                </div>
-            </HeadSection>
-            <FilmsSection className="films">
-                <div className="films__list">
-                    {filmsList.map((film: Film, index) => 
-                        renderFilmsCondition(film, index, searchState, visibleFilmsCount) &&
-                        <SingleFilm addFilmBtn key={film.id} film={film} />
-                    )}
-                </div>
-                {filmsList?.length > 0 && <Button onClick={() => setVisibleFilmsCount(visibleFilmsCount+5)} className='films__btn showMore-btn'>Показать больше</Button>}
-            </FilmsSection>
-        </Container>
-        <Loader isLoading={isLoading} />
+                    <div className="search">
+                        <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />
+                    </div>
+                </HeadSection>
+                <FilmsSection className="films">
+                    <div className="films__list">
+                        {filmsList.map((film: Film, index) => 
+                            renderFilmsCondition(film, index, searchState, visibleFilmsCount) &&
+                            <SingleFilm addFilmBtn key={film.id} film={film} />
+                        )}
+                    </div>
+                    {filmsList?.length > 0 && <Button onClick={() => setVisibleFilmsCount(visibleFilmsCount+5)} className='films__btn showMore-btn'>Показать больше</Button>}
+                </FilmsSection>
+            </Container>
+            <Loader isLoading={isLoading} />
 
-        <Modal type={ModalType.justModal}>
-            <h2>Это модальное окно</h2>
-            <p>Тут может быть твой контент</p>
-            <p>Но сейчас... Просто закрой меня?</p>
-        </Modal>
+            <Modal type={ModalType.justModal}>
+                <h2>Это модальное окно</h2>
+                <p>Тут может быть твой контент</p>
+                <p>Но сейчас... Просто закрой меня?</p>
+            </Modal>
+        </Background>
     </>)
 }
 

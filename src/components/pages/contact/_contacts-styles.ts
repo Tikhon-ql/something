@@ -4,13 +4,12 @@ import { $Gray, $White, $breakp576, $breakp767, $Black} from '../../../styles/ui
 import { SectionWithImage } from '../../../styles/uiKit';
 
 import Phones from "../../../styles/images/contacts/phones.jpg"
+import Waa from "../../../styles/images/wai.jpg"
 
 export const MainSection = styled(SectionWithImage)`
     &::after {
-        background: ${`center/cover url(${Phones}) ${$Gray} no-repeat`};
-
-        opacity: 0.7;
-        filter: none;
+        background: ${`center/cover url(${Waa}) ${$Gray} no-repeat`};
+        opacity: 0.9;
     }
     @media (max-width: ${$breakp767}) {
         height: auto;
@@ -40,7 +39,7 @@ export const MainSection = styled(SectionWithImage)`
 `
 
 export const ContactSection = styled.section`
-    padding: 8rem 6rem;
+    padding: 8rem 5rem;
 
     position: relative;
     overflow: hidden;
@@ -81,6 +80,12 @@ export const ContactSection = styled.section`
             flex-direction: row;
             gap: 2rem;
             text-decoration: none;
+        }
+
+        img {
+            &:hover {
+                transform: scale(1.3);
+            }
         }
     }
 `

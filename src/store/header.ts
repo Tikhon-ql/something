@@ -6,22 +6,25 @@ export enum HeaderColors {
 }
 export type HeaderStyle = {
     isTransparent: boolean,
-    color: HeaderColors,
+    color?: HeaderColors,
+    textColor?: HeaderColors
 }
 
 class Header {
     headerStyle: HeaderStyle = {
         isTransparent: false,
-        color: HeaderColors.white
+        color: HeaderColors.white,
+        textColor: HeaderColors.dark
     }
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    setIsTransparent(_value: boolean, _color?: HeaderColors) {
-        this.headerStyle.isTransparent = _value;
-        this.headerStyle.color = _color;
+    setIsTransparent(params: HeaderStyle) {
+        this.headerStyle.isTransparent = params.isTransparent;
+        this.headerStyle.color = params.color;
+        this.headerStyle.textColor = params.textColor;
     }
 }
 
