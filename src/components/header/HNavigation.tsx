@@ -3,6 +3,7 @@ import Modal from '../utilities/modal/Modal';
 import modal, { ModalType } from '../../store/modal';
 import auth from '../../store/auth';
 import { Button } from '../../styles/uiKit';
+import headerStore, { HeaderColors } from '../../store/header';
 
 export const Links = ({type}) => {
     return <>
@@ -26,7 +27,7 @@ const HNavigation = () => {
     return (
         <nav className="header__navigation">
             <Links type={"desktop"}/>
-            <div className="header__navigation-burger" onClick={() => modal.toggle(true, ModalType.mobileMenu)}><div></div></div>
+            <div className={`header__navigation-burger text-${headerStore.headerStyle.textColor}`} onClick={() => modal.toggle(true, ModalType.mobileMenu)}><div></div></div>
             <Modal type={ModalType.mobileMenu}>
                 <Links type={"mobile"}/>
             </Modal>

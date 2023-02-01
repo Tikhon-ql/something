@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
 import { $White, SectionWithImage } from '../../../styles/uiKit';
-import { $Gray, $breakp576, $transition} from '../../../styles/uiKit';
+import { $Gray, $breakp767, $transition} from '../../../styles/uiKit';
 import img from "../../../styles/images/login/wao.jpg"
 
 export const LoginSection = styled(SectionWithImage)`
@@ -33,11 +33,7 @@ export const LoginSection = styled(SectionWithImage)`
 
         transition: ${$transition};
 
-        &:hover {
-            background: #00000059;
-        }
-
-        @media (max-width: ${$breakp576}) {
+        @media (max-width: ${$breakp767}) {
             padding: 0;
             background: none;
         }

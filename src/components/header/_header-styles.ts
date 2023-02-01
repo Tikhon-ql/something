@@ -159,6 +159,17 @@ export const SiteHeader = styled.header`
 
                 padding: 1rem 0;
 
+                &.text-white {
+                    div {
+                        background-color: ${$White};
+
+                        &::after,
+                        &::before {
+                            background-color: ${$White};
+                        } 
+                    }
+                }
+
                 @media (max-width: ${$breakp991}) {
                     display: block;
                 }
