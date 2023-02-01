@@ -11,22 +11,23 @@ export const $Gray = "#eeecec";
 export const $DeepGray = "#ececec";
 export const $BorderColor = "#666666";
 export const $Black = "#000000";
+export const $TransparentBlack = "#00000059";
 export const $White = "#ffffff";
 export const $TransparentWhite = "#ffffffeb"
 
 export const $transition = "all .2s ease-in";
 export const $headerHeight = "100px";
 
-export const Button = styled.a`
+export const Button = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: black;
+    background-color: ${props => props.white?$White:$Black};
 
-    color: #dddddd;
-    font-size: 18px;
-    line-height: 30px;
+    color: ${props => props.white?$Black:"#dddddd"};
+    font-size: 15px;
+    line-height: 25px;
     font-weight: 600;
     text-align: center;
 
@@ -118,5 +119,16 @@ export const SectionWithImage = styled.section`
         filter: blur(2px);
 
         z-index: -1;
+    }
+`
+
+export const PageHeadline = styled.h1`
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 70px;
+
+    @media (max-width: ${$breakp450}) {
+        font-size: 35px;
+        line-height: 40px;
     }
 `

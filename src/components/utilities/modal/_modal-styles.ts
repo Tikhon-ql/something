@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import '../../../styles/uiKit'
-import { $breakp767, $breakp991, $DeepGray, $breakp576, $transition, $White, $Black} from '../../../styles/uiKit';
+import { $breakp767, $White, $Black} from '../../../styles/uiKit';
 
 export const ModalWindow = styled.section`
     position: fixed;
@@ -26,7 +26,7 @@ export const ModalWindow = styled.section`
         z-index: 3;
 
         width: 65%;
-        height: 500px;
+        min-height: 500px;
 
         padding: 120px;
 

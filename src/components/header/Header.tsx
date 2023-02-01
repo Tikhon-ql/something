@@ -4,8 +4,9 @@ import Logo from '../../styles/images/camera.svg'
 import LogoW from '../../styles/images/camera-white.svg'
 import Navigation from './HNavigation';
 import { Container } from '../../styles/uiKit';
-import headerStore, { HeaderColors } from '../../store/header';
+import headerStore from './store/header';
 import { SiteHeader } from './_header-styles';
+import { HeaderColors } from '../../types/types';
 
 const Header = observer(() => {
     return (

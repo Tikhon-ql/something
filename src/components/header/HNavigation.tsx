@@ -1,9 +1,10 @@
 import {Link} from 'react-router-dom'
 import Modal from '../utilities/modal/Modal';
-import modal, { ModalType } from '../../store/modal';
-import auth from '../../store/auth';
+import modal from '../utilities/modal/store/modal';
+import auth from '../pages/login/store/auth';
 import { Button } from '../../styles/uiKit';
-import headerStore, { HeaderColors } from '../../store/header';
+import headerStore  from './store/header';
+import { ModalType } from '../../types/types';
 
 export const Links = ({type}) => {
     return <>

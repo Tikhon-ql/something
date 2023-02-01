@@ -1,14 +1,5 @@
 import {makeAutoObservable} from "mobx"
-
-export enum HeaderColors {
-    dark = "dark",
-    white = "white"
-}
-export type HeaderStyle = {
-    isTransparent: boolean,
-    color?: HeaderColors,
-    textColor?: HeaderColors
-}
+import { HeaderColors, HeaderStyle } from '../../../types/types';
 
 class Header {
     headerStyle: HeaderStyle = {

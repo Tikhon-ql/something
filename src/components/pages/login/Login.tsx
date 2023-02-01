@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import {observer} from "mobx-react-lite"
 import { Button, Input } from '../../../styles/uiKit';
-import modal from '../../../store/modal';
+import modal from '../../utilities/modal/store/modal';
 import Loader from '../../../components/utilities/loader/Loader';
-import auth, { LoginType } from '../../../store/auth';
-import { Container } from '../../../styles/uiKit';
-import header, { HeaderColors } from '../../../store/header';
+import auth from './store/auth';
+import { Container, PageHeadline } from '../../../styles/uiKit';
+import header from '../../header/store/header';
 import { LoginSection } from './_login-styles';
 import { useNavigate } from "react-router-dom";
+import { LoginType, HeaderColors } from '../../../types/types';
 
 const Login = observer(() => {
     const [creds, setCreds] = useState<LoginType>({nickName: "", password: ""})
@@ -28,7 +29,7 @@ const Login = observer(() => {
             <Container>
                 <div className="login__wrapper">
                     <div className="login__inner">
-                        <h1>Войдите в аккаунт</h1>
+                        <PageHeadline>Войдите в аккаунт</PageHeadline>
 
                         <div className='login__form'>
                             <Input placeholder="Enter login" type="text" onChange={(e) => setCreds({...creds, nickName: e.target.value})}/>

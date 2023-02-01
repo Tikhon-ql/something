@@ -1,8 +1,9 @@
 import CloseBtn from '../../../styles/images/close.svg'
-import modal, { ModalType } from '../../../store/modal'
+import modal from './store/modal'
 import React, { FC } from 'react';
 import {observer} from "mobx-react-lite"
 import { ModalWindow } from './_modal-styles';
+import { ModalType } from "../../../types/types"
 
 const Modal: FC<{children: React.ReactNode, type: ModalType}> = observer(({children, type}) => {
     document.body.style.overflowY = modal.modals[type].isOpen?'hidden':'scroll';

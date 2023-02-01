@@ -1,10 +1,5 @@
 import {makeAutoObservable} from "mobx"
-
-export enum ModalType {
-    mobileMenu = "mobileMenu",
-    justModal = "justModal",
-    error = "error"
-}
+import { ModalType } from "../../../../types/types"
 
 class Modal {
     modals = {

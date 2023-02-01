@@ -1,24 +1,7 @@
 import {makeAutoObservable} from "mobx"
-import modal from "./modal"
-import { method } from "../api/methods"
-
-export type LoginType = {
-    nickName: string,
-    password: string,
-    email?: string,
-    firstName?: string,
-    lastName?: string
-}
-export type UserData = {
-    name: string,
-    secondName: string,
-    phoneNumber: string,
-    userId: number
-}
-export type AccessType = {
-    accessToken: string,
-    expirationDate: string
-}
+import modal from "../../../utilities/modal/store/modal"
+import { method } from "../../../../api/methods"
+import { UserData, LoginType, AccessType } from '../../../../types/types';
 
 class Auth {
     isAuth: boolean = (localStorage.getItem('isAuth') == "true"?true:false) || false;

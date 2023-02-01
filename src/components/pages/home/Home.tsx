@@ -1,11 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
-import header, { HeaderColors } from '../../../store/header';
-import { Container, Button } from '../../../styles/uiKit';
+import header from '../../header/store/header';
+import { Container, Button, PageHeadline } from '../../../styles/uiKit';
 import { MainSection, TextSection } from './_home-styles';
-import modal, { ModalType } from '../../../store/modal';
-import auth from '../../../store/auth';
+import modal from '../../utilities/modal/store/modal';
+import auth from '../login/store/auth';
 import { Link } from 'react-router-dom';
+import { ModalType, HeaderColors } from "../../../types/types"
 
 
 const Home = observer(() => {
@@ -23,7 +24,7 @@ const Home = observer(() => {
         <MainSection className='image-block'>
             <Container>
                 <div className="image-block__wrapper">
-                    <h1>Films</h1>
+                    <PageHeadline>Films</PageHeadline>
                     <span className='paragraph' style={{fontStyle: "italic"}}>developed with ReactJS</span>
                 </div>
             </Container>

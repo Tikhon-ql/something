@@ -1,7 +1,6 @@
 import axios from "axios";
-import { TodoType } from "../store/todo";
-import auth, { AccessType } from "../store/auth";
-import { Films, Film, AddFilm } from "../components/pages/films/Films";
+import auth from "../components/pages/login/store/auth";
+import { AccessType, Films, Film, AddFilmType } from "../types/types";
 
 const api = axios.create();
 
@@ -16,9 +15,6 @@ api.interceptors.response.use(
 api.defaults.headers['Authorization'] = `Bearer ${localStorage.getItem("accessToken")}`; 
 
 export const method = {
-    getTodos() {
-        return api.get<TodoType[]>(`https://jsonplaceholder.typicode.com/todos`)
-    },
     login(_data) {
         return api.post<AccessType>(`http://api.films.peabody28.com/Login`, {..._data})
     },
@@ -29,9 +25,12 @@ export const method = {
         return api.get<Film[]>(`http://api.films.peabody28.com/Film`)
     },
     getUserFilms() {
-        return api.get<Films>(`http://api.films.peabody28.com/User/Film`)
+        return api.get<Film[]>(`http://api.films.peabody28.com/User/Film`)
     },
-    addFilm(_data: AddFilm) {
+    addFilmToMyCollection(_data: AddFilmType) {
         return api.post(`http://api.films.peabody28.com/User/Film`, {..._data})
     },
+    addFilmToDB(_data) {
+        return api.post(`http://api.films.peabody28.com/Film`, {..._data})
+    }
 }

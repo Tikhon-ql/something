@@ -4,7 +4,6 @@ import { $Gray, $BorderColor, $White, $breakp767,$breakp991, $Black, $headerHeig
 export const SiteHeader = styled.header`
         position: sticky;
         width: 100%;
-        border-bottom: 2px solid ${$BorderColor};
         z-index: 100;
 
         &::after {
@@ -24,7 +23,7 @@ export const SiteHeader = styled.header`
                 &::after {
                     background-color: ${$White};
                     opacity: .45;
-                    border-bottom: 2px solid ${$Black};
+                    outline: 2px solid ${$Black};
                 }
             }
 

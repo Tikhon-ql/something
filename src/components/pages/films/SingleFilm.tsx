@@ -1,13 +1,15 @@
-import { toggleSubmenu, AddFilm } from "./Films"
-import { Button } from "../../../styles/uiKit"
+import { toggleSubmenu } from "./Films"
+import { FilmsType, AddFilmType } from '../../../types/types';
 import { method } from "../../../api/methods"
-import modal from "../../../store/modal"
+import modal from "../../utilities/modal/store/modal"
 import { useState } from "react"
+import { FilmItem, FilmItemHead, AddFilmBtn, FilmSubmenu } from "./_films-styles"
+import { $White } from "../../../styles/uiKit"
 
-const addFilm = (data: AddFilm) => {
+const addFilm = (data: AddFilmType) => {
     (async () => {
         try {
-            await method.addFilm({filmId: data.filmId});   
+            await method.addFilmToMyCollection({filmId: data.filmId});   
         }
         catch(e) {
             modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
@@ -15,29 +17,28 @@ const addFilm = (data: AddFilm) => {
     })()
 }
 
-const SingleFilm = ({film, addFilmBtn = false}) => {
+const SingleFilm = ({film, type}) => {
     const [btnText, setBtnText] = useState<string>("Добавить к себе");
     const [isFilmAlreadyAdded, setIsFilmAlreadyAdded] = useState<boolean>(false)
 
-
     return (
-        <div id={film.id} className='film-item'>
-            <div className="film-item__head">
+        <FilmItem id={film.id} className='film-item'>
+            <FilmItemHead className="film-item__head">
                 <p className='film-item__head-name'>{film.title}, ({film.year}) <span style={{fontWeight: 400}}>({film?.ratings[0].ratingTypeName}: {film?.ratings[0].value})</span></p>
                 <p>{film.countryName}</p>
-                <div className="icon" onClick={(e) => {
+                <div className="icon" onClick={() => {
                     toggleSubmenu(film.id)
                 }} />
-                {addFilmBtn && <Button className='film-item__add' onClick={async (e) => {
+                {type == FilmsType.all && <AddFilmBtn className='film-item__add' onClick={async (e) => {
                     !isFilmAlreadyAdded && await addFilm({filmId: film.id})
                     setBtnText("Добавлен")
                     setIsFilmAlreadyAdded(true)
-                }}>{btnText}</Button>}
-            </div>
-            <div id={"submenu-" + film.id} className="film-item__submenu">
-                <p>{film.description}</p>
-            </div>
-        </div>
+                }}>{btnText}</AddFilmBtn>}
+            </FilmItemHead>
+            <FilmSubmenu id={"submenu-" + film.id} className="film-item__submenu">
+                <p style={{color: $White}}>{film.description}</p>
+            </FilmSubmenu>
+        </FilmItem>
     )
 }
 export default SingleFilm
