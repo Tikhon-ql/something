@@ -61,7 +61,7 @@ export const Background = styled(SectionWithImage)`
         position: fixed;
     }
 
-    &.myFilms {
+    &.my-films {
         &::after {
             background: ${`center/cover url(${img2}) ${$Gray} no-repeat`};
             opacity: 0.8;

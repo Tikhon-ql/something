@@ -24,7 +24,7 @@ export const Links = ({type}) => {
     </>
 }
 
-const HNavigation = () => {
+const Navigation = () => {
     return (
         <nav className="header__navigation">
             <Links type={"desktop"}/>
@@ -36,4 +36,4 @@ const HNavigation = () => {
     )
 }
 
-export default HNavigation
+export default Navigation

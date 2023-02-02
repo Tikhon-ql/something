@@ -17,8 +17,19 @@ const addFilm = (data: AddFilmType) => {
     })()
 }
 
-const SingleFilm = ({film, type}) => {
-    const [btnText, setBtnText] = useState<string>("Добавить к себе");
+const deleteFilm = (data) => {
+    (async () => {
+        try {
+            await method.deleteFilmFromMyCollection({id: data.filmId});   
+        }
+        catch(e) {
+            modal.setErrorMessage("Пользователь не найден. Проверьте данные или зарегистрируйтесь")
+        }
+    })()
+}
+
+const SingleFilm = ({film, type, setReload}) => {
+    const [btnText, setBtnText] = useState<string>(type == FilmsType.all?"Добавить к себе":"Удалить из подборки");
     const [isFilmAlreadyAdded, setIsFilmAlreadyAdded] = useState<boolean>(false)
 
     return (
@@ -33,6 +44,11 @@ const SingleFilm = ({film, type}) => {
                     !isFilmAlreadyAdded && await addFilm({filmId: film.id})
                     setBtnText("Добавлен")
                     setIsFilmAlreadyAdded(true)
+                }}>{btnText}</AddFilmBtn>}
+
+                {type == FilmsType.my && <AddFilmBtn className='film-item__delete' onClick={async (e) => {
+                    await deleteFilm({filmId: film.id})
+                    setReload(true)
                 }}>{btnText}</AddFilmBtn>}
             </FilmItemHead>
             <FilmSubmenu id={"submenu-" + film.id} className="film-item__submenu">

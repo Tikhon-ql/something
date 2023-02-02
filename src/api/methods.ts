@@ -1,8 +1,14 @@
 import axios from "axios";
 import auth from "../components/pages/login/store/auth";
-import { AccessType, Films, Film, AddFilmType } from "../types/types";
+import { AccessType, Film, AddFilmType } from "../types/types";
 
-const api = axios.create();
+const api = axios.create({
+    baseURL: "http://api.films.peabody28.com",
+    headers: {
+        ['Authorization']: `Bearer ${localStorage.getItem("accessToken")}`,
+        ['Content-Type']: "application/json; charset=utf8"
+    }
+});
 
 api.interceptors.response.use(
     response => response,
@@ -12,25 +18,28 @@ api.interceptors.response.use(
         }
 });
 
-api.defaults.headers['Authorization'] = `Bearer ${localStorage.getItem("accessToken")}`; 
 
 export const method = {
     login(_data) {
-        return api.post<AccessType>(`http://api.films.peabody28.com/Login`, {..._data})
+        return api.post<AccessType>(`/Login`, {..._data})
     },
     registration(_data) {
-        return api.post<AccessType>(`http://api.films.peabody28.com/Registration`, {..._data})
+        return api.post<AccessType>(`/Registration`, {..._data})
     },
     getFilms() {
-        return api.get<Film[]>(`http://api.films.peabody28.com/Film`)
+        return api.get<Film[]>(`/Film`)
     },
     getUserFilms() {
-        return api.get<Film[]>(`http://api.films.peabody28.com/User/Film`)
+        return api.get<Film[]>(`/User/Film`)
     },
     addFilmToMyCollection(_data: AddFilmType) {
-        return api.post(`http://api.films.peabody28.com/User/Film`, {..._data})
+        return api.post(`/User/Film`, {..._data})
+    },
+    deleteFilmFromMyCollection(_data) {
+        console.log(_data)
+        return api.delete(`/User/Film`, {..._data})
     },
     addFilmToDB(_data) {
-        return api.post(`http://api.films.peabody28.com/Film`, {..._data})
+        return api.post(`/Film`, {..._data})
     }
 }

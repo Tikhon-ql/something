@@ -8,6 +8,8 @@ export const MainSection = styled(SectionWithImage)`
     &::after {
         background: ${`center/cover url(${Waa}) ${$Gray} no-repeat`};
         opacity: 0.9;
+
+        filter: blur(1px);
     }
     @media (max-width: ${$breakp767}) {
         height: auto;

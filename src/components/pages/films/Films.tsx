@@ -98,7 +98,7 @@ const Films = ({type}) => {
 
  
     return (<>
-        <Background className="background">
+        <Background className={`background ${type == FilmsType.my && "my-films"}`}>
             <Container minHeight={"100vh"} className="container">
                 <HeadSection className="head">
                     <PageHeadline>
@@ -114,7 +114,7 @@ const Films = ({type}) => {
                         {filmsList?.length > 0
                             ?filmsList.map((film: Film, index) => 
                                 renderFilmsCondition(film, index, searchState, visibleFilmsCount) &&
-                                <SingleFilm type={type} key={film.id} film={film}  />
+                                <SingleFilm type={type} key={film.id} film={film} setReload={setReload} />
                             )
                         : <p style={{color: $White}}>В вашей коллекции нет ни одного фильма : (</p>
                         }

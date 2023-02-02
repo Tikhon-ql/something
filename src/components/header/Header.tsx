@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import { observer } from 'mobx-react-lite';
 import Logo from '../../styles/images/camera.svg'
 import LogoW from '../../styles/images/camera-white.svg'
-import Navigation from './HNavigation';
+import Navigation from './Navigation';
 import { Container } from '../../styles/uiKit';
 import headerStore from './store/header';
 import { SiteHeader } from './_header-styles';

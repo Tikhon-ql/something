@@ -44,7 +44,7 @@ export const Button = styled.div`
         transform: scale(1.03);
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: ${$breakp576}) {
         padding: 2rem;
 
         width: 100% !important;
@@ -64,7 +64,7 @@ export const Input = styled.input`
 
     font-size: 2rem;
 
-    @media (max-width: 576px) {
+    @media (max-width: ${$breakp576}) {
         width: 100% !important;
         min-width: unset !important;
         max-width: unset !important;
@@ -82,9 +82,13 @@ export const Container = styled.div`
 
     min-height: ${props => props.minHeight || "auto"};
 
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
 
     margin: 0 auto;
+
+    @media (max-width: ${$breakp576}) {
+        padding: 0 15px;
+    }
 `
 export const FlexContainer = styled.div`
     display: flex;
