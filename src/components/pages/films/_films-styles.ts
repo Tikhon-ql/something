@@ -6,6 +6,7 @@ import {
     $TransparentWhite, 
     $breakp767, 
     $breakp576, 
+    $breakp991,
     $Black, 
     $TransparentBlack,
     SectionWithImage,
@@ -16,6 +17,24 @@ import Plus from "../../../styles/images/plus.png"
 import Minus from "../../../styles/images/minus.png"
 import img from "../../../styles/images/cold.jpg"
 import img2 from "../../../styles/images/kraska.jpg"
+
+export const ScrollToTopBtn = styled.img`
+    position: fixed;
+
+    bottom: 5rem;
+    right: 5rem;
+
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.2);
+    } 
+
+    @media (max-width: ${$breakp576}) {
+        bottom: 3rem;
+        right: 3rem;
+    }
+`
 
 export const AddFilm = styled.div`
     display: flex;
@@ -71,7 +90,7 @@ export const Background = styled(SectionWithImage)`
     }
 `
 export const HeadSection = styled.section`
-    padding-bottom: 0;
+    padding: 0;
     margin-bottom: 8rem;
     text-align: center;
 
@@ -81,6 +100,12 @@ export const HeadSection = styled.section`
         right: 0;
 
         color: ${$White};
+
+        @media (max-width: ${$breakp991}) {
+            position: relative;
+
+            margin-top: 2rem;
+        }
     }
 
     h1 {
@@ -134,10 +159,6 @@ export const FilmItem = styled.div`
     &.open {
         .icon {
             background: center/cover url(${Minus});
-        }
-
-        .film-item__submenu {
-            display: block;
         }
     }
 `
@@ -203,11 +224,15 @@ export const AddFilmBtn = styled(Button)`
 `
 
 export const FilmSubmenu = styled.div`
-    display: none;
-
-    transition: all .4s;
+    transition: height .2s;
 
     background: ${$Black};
+
+    height: 0;
+`
+
+
+export const FilmSubmenuContent = styled.p`
     padding: 3rem 4rem;
 
     @media (max-width: ${$breakp576}) {

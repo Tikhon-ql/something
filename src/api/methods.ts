@@ -36,8 +36,7 @@ export const method = {
         return api.post(`/User/Film`, {..._data})
     },
     deleteFilmFromMyCollection(_data) {
-        console.log(_data)
-        return api.delete(`/User/Film`, {..._data})
+        return api.delete(`/User/Film`, {data: _data})
     },
     addFilmToDB(_data) {
         return api.post(`/Film`, {..._data})

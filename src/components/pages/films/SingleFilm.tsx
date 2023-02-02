@@ -1,9 +1,8 @@
-import { toggleSubmenu } from "./Films"
 import { FilmsType, AddFilmType } from '../../../types/types';
 import { method } from "../../../api/methods"
 import modal from "../../utilities/modal/store/modal"
 import { useState } from "react"
-import { FilmItem, FilmItemHead, AddFilmBtn, FilmSubmenu } from "./_films-styles"
+import { FilmItem, FilmItemHead, AddFilmBtn, FilmSubmenu, FilmSubmenuContent } from "./_films-styles"
 import { $White } from "../../../styles/uiKit"
 
 const addFilm = (data: AddFilmType) => {
@@ -28,18 +27,19 @@ const deleteFilm = (data) => {
     })()
 }
 
-const SingleFilm = ({film, type, setReload}) => {
+const SingleFilm = ({film, type, reload}) => {
     const [btnText, setBtnText] = useState<string>(type == FilmsType.all?"Добавить к себе":"Удалить из подборки");
     const [isFilmAlreadyAdded, setIsFilmAlreadyAdded] = useState<boolean>(false)
 
+    const [openState, setOpenState] = useState<boolean>(false)
+
     return (
-        <FilmItem id={film.id} className='film-item'>
+        <FilmItem id={film.id} className={`film-item ${openState?"open":""}`}>
             <FilmItemHead className="film-item__head">
                 <p className='film-item__head-name'>{film.title}, ({film.year}) <span style={{fontWeight: 400}}>({film?.ratings[0].ratingTypeName}: {film?.ratings[0].value})</span></p>
                 <p>{film.countryName}</p>
-                <div className="icon" onClick={() => {
-                    toggleSubmenu(film.id)
-                }} />
+                <div className="icon" onClick={() => setOpenState(!openState)} />
+
                 {type == FilmsType.all && <AddFilmBtn className='film-item__add' onClick={async (e) => {
                     !isFilmAlreadyAdded && await addFilm({filmId: film.id})
                     setBtnText("Добавлен")
@@ -48,11 +48,12 @@ const SingleFilm = ({film, type, setReload}) => {
 
                 {type == FilmsType.my && <AddFilmBtn className='film-item__delete' onClick={async (e) => {
                     await deleteFilm({filmId: film.id})
-                    setReload(true)
+                    await reload.setReload(!reload.reload)
                 }}>{btnText}</AddFilmBtn>}
+
             </FilmItemHead>
-            <FilmSubmenu id={"submenu-" + film.id} className="film-item__submenu">
-                <p style={{color: $White}}>{film.description}</p>
+            <FilmSubmenu style={{height: openState?document.getElementById("submenu-content-" + film.id).scrollHeight:0}} className="film-item__submenu">
+                <FilmSubmenuContent id={"submenu-content-" + film.id} style={{color: $White}}>{film.description}</FilmSubmenuContent>
             </FilmSubmenu>
         </FilmItem>
     )

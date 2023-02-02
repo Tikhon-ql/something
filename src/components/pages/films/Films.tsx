@@ -5,15 +5,20 @@ import { Button, Input, $White } from '../../../styles/uiKit';
 import modal from '../../utilities/modal/store/modal';
 import { Container, PageHeadline } from '../../../styles/uiKit';
 import { method } from '../../../api/methods';
-import { FilmsSection, HeadSection, Background, AddFilm, ModalContent } from './_films-styles';
+import { 
+    FilmsSection, 
+    HeadSection, 
+    Background, 
+    AddFilm, 
+    ModalContent, 
+    ScrollToTopBtn 
+} from './_films-styles';
 import SingleFilm from './SingleFilm';
 import header from '../../header/store/header';
 import { ModalType, HeaderColors, Film, FilmsType } from '../../../types/types';
 
-export const toggleSubmenu = (_id) => {
-    let element = document.getElementById(`${_id}`);
-    element.classList.toggle("open");  
-} 
+import ToTop from "../../../styles/images/top.svg"
+
 
 export const renderFilmsCondition = (film: Film, index, searchState, visibleFilmsCount) => {
     if(searchState?.length > 0) {
@@ -70,6 +75,7 @@ const Films = ({type}) => {
                         filmsList = (await method.getFilms()).data
                     }
                 }
+
                 setFilmsList(filmsList)    
             }
             catch(e) {
@@ -79,6 +85,10 @@ const Films = ({type}) => {
                 setIsLoading(false)
             }
         })()
+
+        return () => {
+            setSearchState("")
+        }
     }, [type, reload])
 
     const addFilmHandle = async () => {
@@ -95,7 +105,6 @@ const Films = ({type}) => {
             setIsLoading(false)
         }
     }
-
  
     return (<>
         <Background className={`background ${type == FilmsType.my && "my-films"}`}>
@@ -105,7 +114,7 @@ const Films = ({type}) => {
                         {type == FilmsType.all?"Все фильмы":"Мои фильмы"}
                     </PageHeadline>
 
-                    <Input onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />
+                    <Input value={searchState} onChange={(e) => setSearchState(e.target.value)} className="search-input" type="text" placeholder="Введите название или год" />
                     {type == FilmsType.all && <p className='allFilmsCount'>Всего фильмов: {filmsList.length}</p>}
 
                 </HeadSection>
@@ -114,7 +123,7 @@ const Films = ({type}) => {
                         {filmsList?.length > 0
                             ?filmsList.map((film: Film, index) => 
                                 renderFilmsCondition(film, index, searchState, visibleFilmsCount) &&
-                                <SingleFilm type={type} key={film.id} film={film} setReload={setReload} />
+                                <SingleFilm type={type} key={film.id} film={film} reload={{reload, setReload}} />
                             )
                         : <p style={{color: $White}}>В вашей коллекции нет ни одного фильма : (</p>
                         }
@@ -128,6 +137,8 @@ const Films = ({type}) => {
                         <Button onClick={() => modal.toggle(true, ModalType.justModal)}>Добавить фильм</Button>
                     </div>
                 </AddFilm>}
+
+                <ScrollToTopBtn width={"70px"} src={ToTop} alt="" onClick={() => window.scrollTo(0, 0)} />
             </Container>
             <Loader isLoading={isLoading} />
 
